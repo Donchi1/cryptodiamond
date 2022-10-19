@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&amp;family=Open+Sans&amp;family=Ubuntu:wght@300;400;500;700&amp;display=swap');
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.bg-primary1 {
+  @apply bg-[#0f143a];
+}
+.bg-primary2 {
+  @apply bg-[#202b5d];
+}
+.bg-secondary {
+  @apply bg-[#070b28];
+}
+
+.primary-text {
+  @apply text-[#f75616];
+}
+
+.border-primary {
+  @apply border-[#f75616] border;
+}
+
+.btn-primary {
+  @apply bg-[#f75616] px-6 py-3 rounded-full uppercase text-white;
+}
+.btn-secondary {
+  @apply bg-transparent hover:bg-[#f75616] transition-all ease-linear duration-500 border border-[#f75616] py-3 px-6 rounded-full uppercase;
+}
+
+.way-bg {
+  background: url('/about1.jpg') no-repeat center;
+  background-size: cover;
+}
+.check {
+  background: url('/check1.png') no-repeat center;
+  background-size: cover;
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/banner.jpg') no-repeat center;
+  background-size: cover;
+}
+.about-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/about.jpg') no-repeat center;
+  background-size: cover;
+}
+.contact-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/contact.jpg') no-repeat center;
+  background-size: cover;
+}
+.plan-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/laptop.jpg') no-repeat center;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  .way-bg1 {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url('/about1.jpg') no-repeat center;
+    background-size: cover;
+  }
+}
