@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getDoc, doc, onSnapshot } from "firebase/firestore";
 import { db } from "../../database/firebaseDb";
 
-function useGetDocument(colls, docId, { snap }) {
+function useGetDocument(colls, docId, { snap, setFormData }) {
   const [document, setDocument] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,10 +15,12 @@ function useGetDocument(colls, docId, { snap }) {
           (qsnap) => {
             setDocument(qsnap.data());
             setLoading(false);
+            if (setFormData) setFormData(qsnap.data());
           },
           (err) => {
             setError(err.message);
             setLoading(false);
+            if (setFormData) setFormData({});
           }
         );
         () => unsubscribe;

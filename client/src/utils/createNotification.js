@@ -1,9 +1,9 @@
 import { db, auth } from '../database/firebaseDb'
-import { doc, addDoc, serverTimestamp } from 'firebase/firestore'
+import {  addDoc, serverTimestamp, collection } from 'firebase/firestore'
 
 const createNotificationData = async ({ title, text, status } = noteData) => {
-  return await addDoc(
-    doc(db, 'notifications', auth.currentUser.uid, 'notificationDatas'),
+   await addDoc(
+     collection(db, 'notifications', auth.currentUser.uid, 'notificationDatas'),
     {
       date: serverTimestamp(),
       title,

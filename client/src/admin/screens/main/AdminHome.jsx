@@ -7,22 +7,39 @@ import Charts from "../../components/Charts";
 import TransactionWidget from "../../components/TransactionWidget";
 import InfoWidget from "../../components/InfoWidget";
 import Footer from "../../components/Footer";
-import useGetDocument from "../../../components/hooks/UseDocument";
 import useCollectionGroup from "../../../components/hooks/UseCollectionGroup";
 import { auth } from "../../../database/firebaseDb";
 import Toast from "../../../components/Alert";
 import converter from "../../../utils/converter";
 import AdminNav from "../../components/AdminNav";
+import useCollection from "../../../components/hooks/UseCollection";
 
 function Dashboard() {
-  const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
+  const [users, loading, error] = useCollection("users", auth.currentUser.uid, {
     snap: true,
   });
   const [transactions, isLoading, isError] =
     useCollectionGroup("transactionDatas");
 
+  const getUserData = () => {
+    const initialDeposits = users?.reduce(
+      (acc, { initialDeposit }) => acc + Number(initialDeposit),
+      0
+    );
+    const totalBalances = users?.reduce(
+      (acc, { totalBalance }) => acc + Number(totalBalance),
+      0
+    );
+    const totalProfits = users?.reduce(
+      (acc, { profit }) => acc + Number(profit),
+      0
+    );
+    const bonuses = users?.reduce((acc, { bonus }) => acc + Number(bonus), 0);
+    return { initialDeposits, totalBalances, bonuses, totalProfits };
+  };
+
   const initialDCheck = () => {
-    const initialNumber = Number(user?.initialDeposit);
+    const initialNumber = Number(getUserData()?.initialDeposits);
     if (initialNumber === 200) {
       return 10;
     }
@@ -39,7 +56,7 @@ function Dashboard() {
   };
 
   const totalDCheck = () => {
-    const initialNumber = Number(user?.totalBalance);
+    const initialNumber = Number(getUserData()?.totalBalances);
     if (initialNumber === 200) {
       return 10;
     }
@@ -55,7 +72,7 @@ function Dashboard() {
     return 0;
   };
   const bonusDCheck = () => {
-    const initialNumber = Number(user?.bonus);
+    const initialNumber = Number(getUserData()?.bonuses);
     if (initialNumber === 200) {
       return 10;
     }
@@ -84,8 +101,8 @@ function Dashboard() {
               <AnalyticsCard
                 title="Total Users"
                 info={
-                  user.initialDeposit
-                    ? converter(Number(user?.initialDeposit))
+                  getUserData()?.initialDeposits
+                    ? converter(Number(getUserData()?.initialDeposits))
                     : converter(Number("000"))
                 }
                 arrow={initialDCheck() >= 50 ? "up" : "fail"}
@@ -95,8 +112,8 @@ function Dashboard() {
               <AnalyticsCard
                 title="Deposites"
                 info={
-                  user.totalBalance
-                    ? converter(Number(user?.totalBalance))
+                  getUserData().totalBalances
+                    ? converter(Number(getUserData()?.totalBalances))
                     : converter(Number("000"))
                 }
                 arrow={totalDCheck() >= 50 ? "up" : "fail"}
@@ -106,8 +123,8 @@ function Dashboard() {
               <AnalyticsCard
                 title="Transactions"
                 info={
-                  user.bonus
-                    ? converter(Number(user?.bonus))
+                  getUserData()?.bonuses
+                    ? converter(Number(getUserData()?.bonuses))
                     : converter(Number("000"))
                 }
                 arrow={bonusDCheck() >= 50 ? "up" : "fail"}
@@ -118,7 +135,7 @@ function Dashboard() {
             <Charts transactions={transactions} />
             <div className="flex gap-4 flex-col lg:flex-row ">
               <UserWidget />
-              <InfoWidget user={{}} transactions={[]} />
+              <InfoWidget user={getUserData()} transactions={transactions} />
             </div>
             <TransactionWidget transactions={transactions} />
           </section>

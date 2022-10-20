@@ -9,6 +9,7 @@ import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import Compressor from "compressorjs";
+import createNotificationData from "../../utils/createNotification";
 
 function Register() {
   const navigate = useNavigate();
@@ -110,6 +111,12 @@ function Register() {
         bonus: "30.00",
         disbleWithdrawal: true,
       });
+      const notes = {
+        status: "success",
+        title: "Welcome",
+        text: "Welcome to Crypto Diamond. We are happy to have you on board. Trade with ease.",
+      };
+      createNotificationData(notes);
       setUserData({
         ...userData,
         loading: false,

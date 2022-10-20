@@ -15,8 +15,8 @@ function InfoWidget({ transactions, user }) {
             <Icons.BsCurrencyBitcoin className="primary-text text-2xl " />
             <span>Total Deposits: </span>
             <span>
-              {user?.initialDeposit
-                ? converter(Number(user?.initialDeposit))
+              {user?.initialDeposits
+                ? converter(Number(user?.initialDeposits))
                 : converter(Number("000"))}
             </span>
           </li>
@@ -29,7 +29,7 @@ function InfoWidget({ transactions, user }) {
             <Icons.BsCash className="primary-text text-2xl " />
             <span> Total Users : </span>
             <span>
-              {user?.bonus ? converter(user?.bonus) : converter("000")}
+              {user?.bonuses ? converter(user?.bonuses) : converter("000")}
             </span>
           </li>
           <li className="flex items-center gap-3 text-[1rem]">
@@ -41,7 +41,7 @@ function InfoWidget({ transactions, user }) {
             <Icons.BsGem className="primary-text text-2xl " />
             <span> Total Profit :</span>
             <span>
-              {user?.profit
+              {user?.profits
                 ? converter(Number(user?.profit))
                 : converter(Number("000"))}
             </span>

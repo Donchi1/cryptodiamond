@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState, Suspense, useEffect } from "react";
 import avater from "/avatar.png";
 import * as Icons from "react-icons/bs";
 import Footer from "../components/Footer";
@@ -15,14 +15,11 @@ import useGetDocument from "../../components/hooks/UseDocument";
 import createNotificationData from "../../utils/createNotification";
 
 export default function Profile() {
+  const [formData, setFormData] = useState({});
   const [user, loading, err] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
+    setFormData: setFormData,
   });
-
-  const [formData, setFormData] = useState(user);
-
-  console.log(formData);
-  console.log(user);
 
   const {
     firstname,
@@ -131,7 +128,7 @@ export default function Profile() {
     } catch (err) {
       Toast.error.fire({
         icon: "error",
-        text: error,
+        text: err,
       });
     }
   };
@@ -241,9 +238,9 @@ export default function Profile() {
                     <h4 className="font-bold text-white mt-4 mb-4 text-xl text-center">
                       Update User Profile information
                     </h4>
-                    <div className=" mt-4 p-4 flex-[2] shadow-lg flex  ">
-                      <div className="flex-[2]">
-                        <div className="flex justify-center lg:hidden  gap-4">
+                    <div className=" mt-4 p-4 flex-[2] shadow-lg flex ">
+                      <div className="flex-[2] w-full">
+                        <div className="flex justify-center lg:hidden ">
                           <label htmlFor="upload" className="cursor-pointer">
                             <img
                               src={user?.photo}

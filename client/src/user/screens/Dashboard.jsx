@@ -16,7 +16,7 @@ import { useSelector } from "react-redux";
 
 function Dashboard() {
   const t = useSelector((state) => state);
-  console.log(t);
+
   const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
   });
@@ -78,9 +78,9 @@ function Dashboard() {
   return (
     <Suspense fallback={loading && Toast.modal()}>
       <UserNav />
-      <div className="flex">
+      <div className="flex ">
         <Sidebar />
-        <div className="flex-[4]  ">
+        <div className="flex-[4] overflow-x-hidden ">
           <section className="w-[90%]  mx-auto">
             <Pagination title={"Dashboard"} />
 
@@ -88,7 +88,7 @@ function Dashboard() {
               <AnalyticsCard
                 title="Deposite"
                 info={
-                  user.initialDeposit
+                  user?.initialDeposit
                     ? converter(Number(user?.initialDeposit))
                     : converter(Number("000"))
                 }
@@ -99,7 +99,7 @@ function Dashboard() {
               <AnalyticsCard
                 title="Total"
                 info={
-                  user.totalBalance
+                  user?.totalBalance
                     ? converter(Number(user?.totalBalance))
                     : converter(Number("000"))
                 }
@@ -110,7 +110,7 @@ function Dashboard() {
               <AnalyticsCard
                 title="Bonus"
                 info={
-                  user.bonus
+                  user?.bonus
                     ? converter(Number(user?.bonus))
                     : converter(Number("000"))
                 }
@@ -120,7 +120,7 @@ function Dashboard() {
               />
             </div>
             <Charts transactions={transactions} />
-            <div className="flex gap-4 flex-col lg:flex-row">
+            <div className="flex gap-4 flex-col lg:flex-row overflow-x-hidden">
               <InfoWidget transactions={transactions} user={user} />
               <TransactionWidget transactions={transactions} />
             </div>

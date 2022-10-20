@@ -23,6 +23,10 @@ import {
 //import { adminContext } from "../../New-Project/context/AdminContext";
 
 const UserNav = () => {
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [openDropdownM, setOpenDropdownM] = useState(false);
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
   //const { setOpenSidebar, dark, setDark } = useContext(adminContext);
   const [notifications, loading, error] = useGetCollection(
     `notifications/${auth.currentUser.uid}/notificationDatas`
@@ -34,10 +38,7 @@ const UserNav = () => {
       snap: true,
     }
   );
-  const dispatch = useDispatch();
-  const { pathname } = useLocation();
-  const [openDropdown, setOpenDropdown] = useState(false);
-  const [openDropdownM, setOpenDropdownM] = useState(false);
+
   const url = pathname.split("/")[2];
 
   const filteredNotes = () => {
@@ -126,11 +127,11 @@ const UserNav = () => {
             <img
               src={user?.photo || avater}
               onClick={() => setOpenDropdown((prev) => !prev)}
-              className="w-[40px] h-[40px] cursor-pointer rounded-full"
+              className="lg:w-[40px] w-[30px] h-[30px] lg:h-[40px] cursor-pointer rounded-full"
             />
             <span
               onClick={() => setOpenDropdown((prev) => !prev)}
-              className="hidden text-white lg:inline cursor-pointer"
+              className="hidden text-white text-sm lg:inline cursor-pointer"
             >
               {user?.firstname || "Donald"}
             </span>
@@ -157,7 +158,7 @@ const UserNav = () => {
             )}
           </div>
           <div
-            className="pr-3 cursor-pointer relative block lg:hidden "
+            className="lg:pr-3 pr-px cursor-pointer relative block lg:hidden "
             onClick={() => dispatch(handleSidebar())}
           >
             <Icons.BsList
