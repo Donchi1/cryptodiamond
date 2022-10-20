@@ -7,7 +7,7 @@ function ProtectedRouteAdmin() {
   const authUser = auth.currentUser;
   const user = useSelector((state) => state.auth.user);
 
-  //if (!authUser || !user?.isAdmin) return <Navigate replace to="/adm/login" />;
+  if (!authUser || !user?.isAdmin) return <Navigate replace to="/adm/login" />;
 
   return <Outlet />;
 }

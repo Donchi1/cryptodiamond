@@ -93,7 +93,7 @@ function Dashboard() {
       <AdminNav />
       <div className="flex">
         <Sidebar />
-        <div className="flex-[4]  ">
+        <div className="flex-[4]  overflow-x-hidden">
           <section className="w-[90%]  mx-auto">
             <Pagination title={"Dashboard"} />
 

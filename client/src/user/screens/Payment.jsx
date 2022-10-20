@@ -8,7 +8,7 @@ import Compressor from "compressorjs";
 import Toast from "../../components/Alert";
 import { storage, auth, db } from "../../database/firebaseDb";
 import { getDownloadURL, uploadBytes, ref } from "firebase/storage";
-import { addDoc, doc, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, doc, serverTimestamp } from "firebase/firestore";
 import useGetDocument from "../../components/hooks/UseDocument";
 
 function Payment() {
@@ -44,7 +44,7 @@ function Payment() {
     try {
       await uploadBytes(docRef, prove);
       const url = await getDownloadURL(docRef);
-      await addDoc(doc(db, "transactions", uid, "transactionDatas"), {
+      await addDoc(collection(db, "transactions", uid, "transactionDatas"), {
         uid,
         email,
         name: user.firstname,

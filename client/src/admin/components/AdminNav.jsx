@@ -102,8 +102,7 @@ const AdminNav = () => {
             <Icons1.ImBell
               stroke="#93c5fd"
               strokeWidth={0.1}
-              size={30}
-              className=" text-white  cursor-pointer "
+              className=" text-white lg:text-[30px] text-[20px] cursor-pointer "
               onClick={handleBellClick}
             />
             {filteredNotes()?.recent && (
@@ -126,11 +125,11 @@ const AdminNav = () => {
             <img
               src={user?.photo || avater}
               onClick={() => setOpenDropdown((prev) => !prev)}
-              className="w-[40px] h-[40px] cursor-pointer rounded-full"
+              className="lg:w-[40px] lg:h-[40px] w-[30px] h-[30px] cursor-pointer rounded-full"
             />
             <span
               onClick={() => setOpenDropdown((prev) => !prev)}
-              className="hidden text-white lg:inline cursor-pointer"
+              className="hidden text-sm text-white lg:inline cursor-pointer"
             >
               {user?.firstname || "Donald"}
             </span>
@@ -157,7 +156,7 @@ const AdminNav = () => {
             )}
           </div>
           <div
-            className="pr-3 cursor-pointer relative block lg:hidden "
+            className="lg:pr-3 pr-px cursor-pointer relative block lg:hidden "
             onClick={() => dispatch(handleSidebar())}
           >
             <Icons.BsList

@@ -104,6 +104,7 @@ function Register() {
         accessCodeProve: "",
         isAdmin: false,
         profit: "",
+        disbleWithdrawalFeeProve: "",
         uid: auth.currentUser.uid,
         date: serverTimestamp(),
         totalBalance: "0000",

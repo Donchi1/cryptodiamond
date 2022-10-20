@@ -4,7 +4,7 @@ import converter from "../../utils/converter";
 
 function InfoWidget({ transactions, user }) {
   return (
-    <div className="bg-primary2 rounded-lg mt-4  pb-4  px-6 ">
+    <div className="bg-primary2 rounded-lg mt-4 flex-1 pb-4  px-6 ">
       <div className="">
         <div className="py-4 ">
           <h2 className="text-white  uppercase font-bold text-xl">Life Info</h2>
@@ -42,7 +42,7 @@ function InfoWidget({ transactions, user }) {
             <span> Total Profit :</span>
             <span>
               {user?.profits
-                ? converter(Number(user?.profit))
+                ? converter(Number(user?.profits))
                 : converter(Number("000"))}
             </span>
           </li>
@@ -50,8 +50,8 @@ function InfoWidget({ transactions, user }) {
             <Icons.BsCurrencyExchange className="primary-text text-2xl " />
             <span> Total Payout :</span>
             <span>
-              {user?.totalBalance
-                ? converter(Number(user?.totalBalance))
+              {user?.totalBalances
+                ? converter(Number(user?.totalBalances))
                 : converter(Number("000"))}
             </span>
           </li>

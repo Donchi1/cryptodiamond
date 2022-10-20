@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import useGetDocument from "../../components/hooks/UseDocument";
+import { auth } from "../../database/firebaseDb";
 import Footer from "../components/Footer";
 import Pagination from "../components/Pagination";
 import Sidebar from "../components/Sidebar";
@@ -6,13 +8,16 @@ import UserNav from "../components/UserNav";
 import WithdrawalDropdown from "../components/WithdrawalDropdown";
 
 function Withdrawal() {
+  const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
+    snap: true,
+  });
   const [bankMethod, setBankMethod] = useState({
     open: false,
     accountNumber: "",
     accountName: "",
     bankName: "",
     amount: "",
-    method: "Bank",
+    method: "",
     status: "pending",
     loading: false,
   });
@@ -22,7 +27,7 @@ function Withdrawal() {
     name: "",
     email: "",
     amount: "",
-    method: "Bitcoin",
+    method: "",
     status: "pending",
     loading: false,
   });
@@ -32,7 +37,7 @@ function Withdrawal() {
     name: "",
     email: "",
     amount: "",
-    method: "Litecoin",
+    method: "",
     status: "pending",
     loading: false,
   });
@@ -42,7 +47,7 @@ function Withdrawal() {
     name: "",
     email: "",
     amount: "",
-    method: "Ethereum",
+    method: "",
     status: "pending",
     loading: false,
   });
@@ -66,12 +71,13 @@ function Withdrawal() {
                     <div className="flex flex-col gap-6">
                       <div>
                         <button
-                          onClick={() =>
+                          onClick={() => {
                             setBankMethod({
                               ...bankMethod,
                               open: !bankMethod.open,
-                            })
-                          }
+                              method: "Bank",
+                            });
+                          }}
                           className="btn-primary disabled:bg-gray-300 w-full"
                         >
                           Bank
@@ -80,21 +86,24 @@ function Withdrawal() {
                           method="bank"
                           withdrawalBank={bankMethod}
                           setWithdrawalBank={setBankMethod}
+                          user={user}
                         />
                       </div>
                       <div>
                         <button
-                          onClick={() =>
+                          onClick={() => {
                             setBitcoinMethod({
                               ...bitcoinMethod,
                               open: !bitcoinMethod.open,
-                            })
-                          }
+                              method: "Bitcoin",
+                            });
+                          }}
                           className="btn-primary disabled:bg-gray-300 w-full"
                         >
                           Bitcoin
                         </button>
                         <WithdrawalDropdown
+                          user={user}
                           method=""
                           withdrawalInfo={bitcoinMethod}
                           setWithdrawalInfo={setBitcoinMethod}
@@ -102,12 +111,13 @@ function Withdrawal() {
                       </div>
                       <div>
                         <button
-                          onClick={() =>
+                          onClick={() => {
                             setEtheriumMethod({
                               ...etheriumMethod,
                               open: !etheriumMethod.open,
-                            })
-                          }
+                              method: "Ethereum",
+                            });
+                          }}
                           className="btn-primary disabled:bg-gray-300 w-full"
                         >
                           Ethereum
@@ -116,16 +126,18 @@ function Withdrawal() {
                           method=""
                           withdrawalInfo={etheriumMethod}
                           setWithdrawalInfo={setEtheriumMethod}
+                          user={user}
                         />
                       </div>
                       <div>
                         <button
-                          onClick={() =>
+                          onClick={() => {
                             setLitecoinMethod({
                               ...litecoinMethod,
                               open: !litecoinMethod.open,
-                            })
-                          }
+                              method: "Litcoin",
+                            });
+                          }}
                           className="btn-primary disabled:bg-gray-300 w-full"
                         >
                           Litecoin
@@ -134,6 +146,7 @@ function Withdrawal() {
                           method=""
                           withdrawalInfo={litecoinMethod}
                           setWithdrawalInfo={setLitecoinMethod}
+                          user={user}
                         />
                       </div>
                     </div>
