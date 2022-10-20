@@ -18,7 +18,11 @@ export default function Profile() {
   const [user, loading, err] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
   });
+
   const [formData, setFormData] = useState(user);
+
+  console.log(formData);
+  console.log(user);
 
   const {
     firstname,
@@ -30,7 +34,7 @@ export default function Profile() {
     gender,
     occupation,
     country,
-    birthDate,
+    birthdate,
     state,
     aboutMe,
   } = formData;
@@ -81,7 +85,7 @@ export default function Profile() {
         !gender ||
         !occupation ||
         !country ||
-        !birthDate ||
+        !birthdate ||
         !state,
       !aboutMe)
     ) {
@@ -111,7 +115,7 @@ export default function Profile() {
         aboutMe,
         occupation,
         country,
-        birthDate,
+        birthdate,
         state,
       });
       const noteData = {
@@ -203,31 +207,31 @@ export default function Profile() {
                         <h4 className="font-bold text-xl text-white">
                           Account Details
                         </h4>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsPersonFill size={20} /> {user?.firstname}{" "}
                           {user?.lastname}
                         </p>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsCurrencyDollar size={20} />{" "}
                           {user?.totalBalance || "0000"}
                         </p>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
-                          <Icons.BsCalendar2Date size={20} /> {user?.birthDate}
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
+                          <Icons.BsCalendar2Date size={20} /> {user?.birthdate}
                         </p>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsInfo size={20} /> {user?.status}
                         </p>
                         <h4 className="font-bold text-xl text-white">
                           Contact Information
                         </h4>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsEnvelope /> {user?.email}
                         </p>
 
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsTelephone /> {user?.phone}
                         </p>
-                        <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
+                        <p className="text-gray-300 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsGeoFill /> {user?.state} {user?.country}
                         </p>
                       </div>
@@ -368,9 +372,9 @@ export default function Profile() {
                               </label>
                               <input
                                 type="date"
-                                name="birthDate"
+                                name="birthdate"
                                 id="bdate"
-                                value={formData?.birthDate}
+                                value={formData?.birthdate}
                                 onChange={handleChange}
                                 className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
                               />

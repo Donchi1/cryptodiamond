@@ -12,8 +12,11 @@ import useGetCollection from "../../components/hooks/UseCollection";
 import { auth } from "../../database/firebaseDb";
 import Toast from "../../components/Alert";
 import converter from "../../utils/converter";
+import { useSelector } from "react-redux";
 
 function Dashboard() {
+  const t = useSelector((state) => state);
+  console.log(t);
   const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
   });
@@ -21,7 +24,6 @@ function Dashboard() {
   const [transactions, isLoading, isError] = useGetCollection(
     `transactions/${auth.currentUser.uid}/transactionDatas`
   );
-  console.log(transactions);
 
   const initialDCheck = () => {
     const initialNumber = Number(user?.initialDeposit);

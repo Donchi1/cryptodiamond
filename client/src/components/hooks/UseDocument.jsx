@@ -13,7 +13,7 @@ function useGetDocument(colls, docId, { snap }) {
         const unsubscribe = onSnapshot(
           doc(db, colls, docId),
           (qsnap) => {
-            setDocument(qsnap.forEach((each) => each.data()));
+            setDocument(qsnap.data());
             setLoading(false);
           },
           (err) => {
@@ -21,12 +21,11 @@ function useGetDocument(colls, docId, { snap }) {
             setLoading(false);
           }
         );
-        unsubscribe();
-      }else{
-
+        () => unsubscribe;
+      } else {
         try {
           const data = await getDoc(doc(db, colls, docId));
-          setDocument(data);
+          setDocument(data.data());
           setLoading(false);
         } catch (err) {
           setError(err);

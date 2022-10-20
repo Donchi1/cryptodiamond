@@ -23,16 +23,12 @@ export const authSlice = createSlice({
     passwordUpdateSuccess: (state, action) =>
       (state.passwordMessage = action.payload),
     loginSuccess: (state, action) => (state.loginSuccess = action.payload),
-    getUser: (state, action) => (state.userData = action.user),
+    getUser: (state, action) => (state.userData = action.payload),
     passResetSuccess: (state, action) =>
       (state.passResetSuccess = 'A password reset email has been sent to you'),
     passResetError: (state, action) => (state.passResetError = action.payload),
   },
 })
 
-export const {
-
-  getUser
-  
-} = authSlice.actions
+export const { getUser } = authSlice.actions
 export default authSlice.reducer
