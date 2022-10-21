@@ -1,5 +1,5 @@
 import React from "react";
-import * as Icons from "react-icons/Bs";
+import * as Icons from "react-icons/bs";
 import converter from "../../utils/converter";
 
 function InfoWidget({ transactions, user }) {

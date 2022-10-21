@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import * as Icons from "react-icons/Bs";
+import * as Icons from "react-icons/bs";
 import { auth, storage, db } from "../../database/firebaseDb";
 import { signOut } from "firebase/auth";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";

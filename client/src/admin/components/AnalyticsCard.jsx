@@ -1,5 +1,5 @@
 import React from "react";
-import * as Icons from "react-icons/Bs";
+import * as Icons from "react-icons/bs";
 
 export default function AnalyticsCard({ title, success, arrow, icon, info }) {
   const checkArrow = (arr) => {

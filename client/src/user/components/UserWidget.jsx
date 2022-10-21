@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as Icons from "react-icons/Bs";
+import * as Icons from "react-icons/bs";
 import { userRow } from "../../utils/UserData";
 import { useNavigate } from "react-router-dom";
 

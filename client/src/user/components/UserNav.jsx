@@ -98,7 +98,7 @@ const UserNav = () => {
           </Link>
         </div>
 
-        <div className="space-x-4  lg:space-x-8 flex items-center justify-center transition-all ease-linear duration-500">
+        <div className="space-x-4 lg:pr-5 pr-0 lg:space-x-8 flex items-center justify-center transition-all ease-linear duration-500">
           <div className="relative">
             <Icons1.ImBell
               stroke="#93c5fd"
