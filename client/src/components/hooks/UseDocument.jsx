@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getDoc, doc, onSnapshot } from "firebase/firestore";
+import { getDoc, doc, onSnapshot, getDocs } from "firebase/firestore";
 import { db } from "../../database/firebaseDb";
 
 function useGetDocument(colls, docId, { snap, setFormData }) {
@@ -8,7 +8,7 @@ function useGetDocument(colls, docId, { snap, setFormData }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getData = async () => {
+    const getDocument = async () => {
       if (snap) {
         const unsubscribe = onSnapshot(
           doc(db, colls, docId),
@@ -23,7 +23,7 @@ function useGetDocument(colls, docId, { snap, setFormData }) {
             if (setFormData) setFormData({});
           }
         );
-        () => unsubscribe;
+        unsubscribe();
       } else {
         try {
           const data = await getDoc(doc(db, colls, docId));
@@ -35,8 +35,9 @@ function useGetDocument(colls, docId, { snap, setFormData }) {
         }
       }
     };
-    getData();
-  }, [docId]);
+
+    getDocument();
+  }, []);
 
   return [document, loading, error];
 }

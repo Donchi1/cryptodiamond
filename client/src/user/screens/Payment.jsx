@@ -168,7 +168,7 @@ function Payment() {
                   </div>
                 </div>
                 <div className="flex-1 bg-gray-400 rounded-lg text-center ">
-                  <div className="lg:m-12 xl:m-16 w-80 mx-auto  ">
+                  <div className="lg:m-12 xl:m-16 lg:w-80 w-60 mx-auto  ">
                     <div>
                       <div>
                         <h4 className="text-center text-lg mb-2 capitalize">
@@ -176,7 +176,11 @@ function Payment() {
                           prove.
                         </h4>
                       </div>
-                      <img src={img1} alt="code" />
+                      <img
+                        src={img1}
+                        alt="code"
+                        className="w-[200px] lg:w-auto mx-auto"
+                      />
                       <h4 className="mt-8 primary-text text-xl text-center break-words">
                         3DGuBbAbgHRQB6R15Mso7vUbYwZf9LXKQ8
                       </h4>

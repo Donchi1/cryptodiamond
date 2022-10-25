@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Icons from "react-icons/bs";
 import * as Icons1 from "react-icons/im";
 import avater from "/avatar.png";
@@ -23,18 +23,14 @@ import {
 //import { adminContext } from "../../New-Project/context/AdminContext";
 
 const AdminNav = () => {
+  const user = JSON.parse(localStorage.getItem("admin"));
+  const dispatch = useDispatch();
+
   //const { setOpenSidebar, dark, setDark } = useContext(adminContext);
   const [notifications, loading, error] = useGetCollection(
     `notifications/${auth.currentUser.uid}/notificationDatas`
   );
-  const [user, isLoading, isError] = useGetDocument(
-    "users",
-    auth.currentUser.uid,
-    {
-      snap: true,
-    }
-  );
-  const dispatch = useDispatch();
+
   const { pathname } = useLocation();
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openDropdownM, setOpenDropdownM] = useState(false);

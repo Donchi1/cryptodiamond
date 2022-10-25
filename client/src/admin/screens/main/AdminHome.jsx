@@ -15,7 +15,7 @@ import AdminNav from "../../components/AdminNav";
 import useCollection from "../../../components/hooks/UseCollection";
 
 function Dashboard() {
-  const [users, loading, error] = useCollection("users", auth.currentUser.uid, {
+  const [users, loading, error] = useCollection("users", {
     snap: true,
   });
   const [transactions, isLoading, isError] =
@@ -134,7 +134,7 @@ function Dashboard() {
             </div>
             <Charts transactions={transactions} />
             <div className="flex gap-4 flex-col lg:flex-row ">
-              <UserWidget />
+              <UserWidget users={users} />
               <InfoWidget user={getUserData()} transactions={transactions} />
             </div>
             <TransactionWidget transactions={transactions} />

@@ -18,11 +18,8 @@ export default function Sidebar() {
     snap: true,
   });
 
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-
   const handleLogout = () => {
-    signOut(auth).then(() => navigate("/"));
+    signOut(auth).then(() => localStorage.removeItem("admin"));
   };
 
   const compressImg = (img) => {

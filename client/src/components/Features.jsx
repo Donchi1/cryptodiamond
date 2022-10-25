@@ -8,7 +8,7 @@ function Features() {
   return (
     <section className="w-full  overflow-x-hidden pb-20 mb-20">
       <div className="w-[90%] lg:w-[80%] mx-auto">
-        <div className="flex justify-center flex-col lg:flex-row items-center gap-8">
+        <div className="flex justify-center flex-col lg:flex-row items-center gap-8 ">
           <motion.div
             className="rounded-lg py-[3.5rem] w-full shadow-lg bg-primary2  flex-1 flex justify-center gap-6 items-center flex-col text-center"
             animate={{ opacity: 0, translateX: "-100px" }}

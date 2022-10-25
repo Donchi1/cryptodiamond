@@ -2,19 +2,28 @@ import React, { useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import * as Icons from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { userRow } from "../utils/UserData";
+import { deleteDoc, doc } from "firebase/firestore";
+import { db } from "../../database/firebaseDb";
+import Toast from "../../components/Alert";
+//import { userRow } from "../utils/UserData";
 
-export default function UserDatalist() {
+export default function UserDatalist({ users }) {
   const navigate = useNavigate();
 
-  const [userData, setUserData] = useState(userRow);
-
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
     //api call for delete
-    setUserData((prev) => prev.filter((each) => each.id !== id));
+    try {
+      await deleteDoc(doc(db, "users", id));
+      Toast.success.fire({
+        icon: "success",
+        text: "user successfully deleted",
+      });
+    } catch (err) {
+      Toast.error.fire({ icon: "error", text: err });
+    }
   };
   const column = [
-    { field: "id", headerName: "Id", width: 90 },
+    { field: "uid", headerName: "Id", width: 90 },
     {
       field: "name",
       headerName: "User",
@@ -92,7 +101,7 @@ export default function UserDatalist() {
               Edit
             </button>
             <Icons.BsTrash
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row.uid)}
               size={24}
               className="cursor-pointer text-red-500 ml-4"
             />
@@ -105,7 +114,7 @@ export default function UserDatalist() {
   return (
     <DataGrid
       columns={column}
-      rows={userData}
+      rows={users}
       checkboxSelection
       pageSize={8}
       disableSelectionOnClick

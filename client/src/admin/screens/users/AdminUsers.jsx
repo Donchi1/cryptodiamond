@@ -8,7 +8,7 @@ import useCollection from "../../../components/hooks/UseCollection";
 import Footer from "../../components/Footer";
 
 export default function AdminUsers() {
-  const [Users, loading, error] = useCollection("users");
+  const [users, loading, error] = useCollection("users");
   return (
     <Suspense fallback={loading && Toast.modal()}>
       <AdminNav />
@@ -18,7 +18,7 @@ export default function AdminUsers() {
           <section className="w-[90%]  mx-auto ">
             <Pagination title={"Users"} />
 
-            <UserDatalist />
+            <UserDatalist users={users} />
           </section>
         </div>
       </div>

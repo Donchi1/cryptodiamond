@@ -4,7 +4,7 @@ import TimeAgo from "react-timeago";
 
 export default function TransactionWidget({ transactions }) {
   return (
-    <div className="pb-4 shadow-lg mt-4 rounded-lg flex-[3]  lg:overflow-x-hidden overflow-x-scroll dark:bg-gray-800 bg-primary2">
+    <div className="pb-4 shadow-lg mt-4 rounded-lg flex-[3]    dark:bg-gray-800 bg-primary2">
       <div className="py-4 flex justify-between items-center pr-2">
         <h1 className="text-white w-[50%] pl-4 uppercase font-bold text-lg lg:text-xl">
           Latest Transactions
@@ -16,8 +16,8 @@ export default function TransactionWidget({ transactions }) {
           View More
         </Link>
       </div>
-      <div className="w-full  lg:overflow-x-hidden overflow-x-scroll ">
-        <table className=" rounded-lg ">
+      <div className="  lg:overflow-x-hidden overflow-x-scroll ">
+        <table className="w-full rounded-lg ">
           <thead>
             <tr className=" border-b border-gray-300 border-t mb-2 text-white ">
               <td className=" p-4" scope="row">

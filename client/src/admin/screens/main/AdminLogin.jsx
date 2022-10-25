@@ -4,6 +4,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Toast from "../../../components/Alert";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { getAdminUser } from "../../../state/adminAuthSlice";
 
 const AdminLogin = function () {
   const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const AdminLogin = function () {
   });
   const navigate = useNavigate();
   const [admin, setAdmin] = useState({});
+  const dispatch = useDispatch();
 
   const { email, password } = formData;
 
@@ -22,6 +25,7 @@ const AdminLogin = function () {
       const docs = await getDocs(q);
       const items = docs.docs.map((each) => each.data());
       setAdmin(items.map((each) => each));
+      dispatch(getAdminUser(items[0]));
     };
     getAdmin();
   }, []);
@@ -37,7 +41,7 @@ const AdminLogin = function () {
         text: "Sorry!! Please fill all field",
         icon: "info",
       });
-    if (admin.email !== email)
+    if (admin[0]?.email !== email)
       return Toast.error.fire({
         text: "Sorry!! Access not granted",
         icon: "error",
@@ -47,12 +51,13 @@ const AdminLogin = function () {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setFormData({ ...formData, loading: false, email: "", password: "" });
+      localStorage.setItem("admin", JSON.stringify(admin[0]));
       return Toast.success
         .fire({
           icon: "success",
           text: "login Successful",
         })
-        .then(() => navigate("/adm", { replace: true }));
+        .then(() => navigate("/adm", { state: admin[0] }));
     } catch (error) {
       setFormData({ ...formData, loading: false, email: "", password: "" });
       return Toast.error.fire({

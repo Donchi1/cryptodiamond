@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as Icons from "react-icons/bs";
 import * as Icons1 from "react-icons/im";
 import avater from "/avatar.png";
@@ -19,6 +19,7 @@ import {
   where,
   updateDoc,
 } from "firebase/firestore";
+import { signOut } from "firebase/auth";
 
 //import { adminContext } from "../../New-Project/context/AdminContext";
 
@@ -31,13 +32,7 @@ const UserNav = () => {
   const [notifications, loading, error] = useGetCollection(
     `notifications/${auth.currentUser.uid}/notificationDatas`
   );
-  const [user, isLoading, isError] = useGetDocument(
-    "users",
-    auth.currentUser.uid,
-    {
-      snap: true,
-    }
-  );
+  const user = useSelector((state) => state.admin.adminUser);
 
   const url = pathname.split("/")[2];
 
@@ -74,6 +69,12 @@ const UserNav = () => {
         );
       });
     }
+  };
+  const handleLogout = () => {
+    setOpenDropdown((prev) => !prev);
+    signOut(auth).then(() => {
+      return window.location.assign("/");
+    });
   };
 
   return (
@@ -147,9 +148,9 @@ const UserNav = () => {
                     Profile
                   </Link>
                   <Link
-                    onClick={() => setOpenDropdown((prev) => !prev)}
+                    onClick={handleLogout}
                     className=" transition-all text-sm ease-linear duration-500 hover:bg-gray- dark:text-white   border-ray-300 p-1 text-center rounded-lg "
-                    to="/"
+                    to="/#"
                   >
                     Log-out
                   </Link>

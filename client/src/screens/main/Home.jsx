@@ -14,7 +14,7 @@ import Footer from "../../components/Footer";
 
 function Home() {
   return (
-    <>
+    <div className="overflow-x-hidden">
       <Hero />
       <Features />
       <About />
@@ -27,7 +27,7 @@ function Home() {
       <Team />
       <Faq />
       <Footer />
-    </>
+    </div>
   );
 }
 

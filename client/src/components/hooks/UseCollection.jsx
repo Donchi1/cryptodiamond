@@ -1,25 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
-import { db } from "../../database/firebaseDb";
+import {
+  collection,
+  query,
+  orderBy,
+  onSnapshot,
+  doc,
+  getDoc,
+  getDocs,
+} from "firebase/firestore";
+import { auth, db } from "../../database/firebaseDb";
 
 function useCollection(col) {
   const [myCollection, setMyCollection] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  console.log(error);
+  console.log(myCollection);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(
-      query(collection(db, col), orderBy("date", "desc")),
-      (qsnap) => {
-        setMyCollection(qsnap.docs.forEach((each) => each.data()));
-        setLoading(false);
-      },
-      (err) => {
-        setError(err.message);
-        setLoading(false);
-      }
-    );
-    unsubscribe();
+    const handleCollection = () => {
+      const unsubscribe = onSnapshot(
+        collection(db, col),
+        (qsnap) => {
+          setMyCollection(qsnap.docs.map((each) => each.data()));
+          setLoading(false);
+        },
+        (err) => {
+          setError(err.message);
+          setLoading(false);
+        }
+      );
+      unsubscribe();
+    };
+    handleCollection();
   }, []);
 
   return [myCollection, loading, error];

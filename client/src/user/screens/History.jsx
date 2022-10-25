@@ -23,16 +23,16 @@ function History() {
           <section className="w-[90%]  mx-auto h-screen">
             <Pagination title={"History"} />
             <div className="pb-4 shadow-lg mt-4 rounded-lg flex-[3]   dark:bg-gray-800 bg-primary2">
-              <div className="py-4 flex justify-between items-center px-6">
-                <h1 className="text-white  uppercase font-bold text-xl">
+              <div className="py-4 flex justify-between items-center px-2">
+                <h1 className="text-white  uppercase font-bold text-lg lg:text-xl">
                   Latest Transactions
                 </h1>
                 <Link to="/user/payment" className="btn-primary">
                   create
                 </Link>
               </div>
-              <div className="w-full  lg:overflow-x-hidden overflow-x-scroll ">
-                <table className="  rounded-lg ">
+              <div className=" lg:overflow-x-hidden overflow-x-scroll ">
+                <table className=" w-full  rounded-lg ">
                   <thead>
                     <tr className=" border-b border-gray-300 border-t mb-2 text-white ">
                       <td className=" p-4" scope="row">

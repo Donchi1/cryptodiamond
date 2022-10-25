@@ -18,7 +18,7 @@ export default function AdminContacts() {
         <div className="flex-[4] h-screen overflow-x-hidden">
           <section className="w-[90%]  mx-auto  ">
             <Pagination title={"Contacts"} />
-            <Contact />
+            <Contact contacts={contacts} />
           </section>
         </div>
       </div>

@@ -13,12 +13,12 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Toast from "../../components/Alert";
 import useGetDocument from "../../components/hooks/UseDocument";
 import createNotificationData from "../../utils/createNotification";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
-  const [user, loading, err] = useGetDocument("users", auth.currentUser.uid, {
-    snap: true,
-  });
+  const user = JSON.parse(localStorage.getItem("admin"));
   const [formData, setFormData] = useState(user);
+  console.log(user);
 
   const {
     firstname,
@@ -30,7 +30,7 @@ export default function Profile() {
     gender,
     occupation,
     country,
-    birthDate,
+    birthdate,
     state,
     aboutMe,
   } = formData;
@@ -81,7 +81,7 @@ export default function Profile() {
         !gender ||
         !occupation ||
         !country ||
-        !birthDate ||
+        !birthdate ||
         !state,
       !aboutMe)
     ) {
@@ -111,7 +111,7 @@ export default function Profile() {
         aboutMe,
         occupation,
         country,
-        birthDate,
+        birthdate,
         state,
       });
       const noteData = {
@@ -171,7 +171,7 @@ export default function Profile() {
 
   return (
     <>
-      <Suspense fallback={loading && Toast.modal()}>
+      <Suspense fallback={Toast.modal()}>
         <AdminNav />
         <div className="flex">
           <Sidebar />
@@ -212,7 +212,7 @@ export default function Profile() {
                           {user?.totalBalance || "0000"}
                         </p>
                         <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
-                          <Icons.BsCalendar2Date size={20} /> {user?.birthDate}
+                          <Icons.BsCalendar2Date size={20} /> {user?.birthdate}
                         </p>
                         <p className="text-gray-500 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsInfo size={20} /> {user?.status}
@@ -370,7 +370,7 @@ export default function Profile() {
                                 type="date"
                                 name="birthDate"
                                 id="bdate"
-                                value={formData?.birthDate}
+                                value={formData?.birthdate}
                                 onChange={handleChange}
                                 className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
                               />

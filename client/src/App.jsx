@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 
@@ -38,6 +38,11 @@ import AdminUsers from "./admin/screens/users/AdminUsers";
 import AdminContacts from "./admin/screens/main/Contacts";
 import Subcribers from "./admin/screens/Subcribers";
 import AdminNotifications from "./admin/screens/main/AdminNotifications";
+import { useDispatch, useSelector } from "react-redux";
+import useGetDocument from "./components/hooks/UseDocument";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { getAdminUser } from "./state/adminAuthSlice";
+import { db } from "./database/firebaseDb";
 
 function App() {
   return (

@@ -3,7 +3,7 @@ import team1 from "/team-male-s.jpg";
 import team2 from "/team-male2.jpg";
 import team3 from "/accountant.jpg";
 import team4 from "/team-female-suit.jpg";
-import team5 from "/team-male.png";
+import team5 from "/acc-man.jpg";
 import team6 from "/ceo.jpg";
 import * as Icons from "react-icons/hi";
 import { motion } from "framer-motion";
@@ -129,10 +129,10 @@ export default function Team() {
               />
             </div>
             <h5 className="primary-text text-xl font-[500] mt-5 mb-5">
-              Kelvin Moah
+              Jeo Kennedy
             </h5>
             <div className="flex justify-between items-center">
-              <p className="text-lg text-white">Director</p>
+              <p className="text-lg text-white">Account Manager</p>
               <span className="flex gap-2 ">
                 <a
                   href="mailto:support@cryptodiamond.info"
@@ -141,7 +141,7 @@ export default function Team() {
                   <Icons.HiMail />
                 </a>
                 <a
-                  href="tel:+4477-0688-1200"
+                  href="tel:+4475-6108-0562"
                   className="font-[500] border-primary text-white p-2 rounded-xl "
                 >
                   <Icons.HiPhone />
