@@ -41,9 +41,9 @@ function NotifyMessage({ info }) {
                 </span>
               </div>
               <div className="flex gap-20 text-lg">
-                <p>{each.message}</p>
+                <p>{each.text}</p>
                 <span className="text-gray-800 text-[15px]">
-                  sent: <TimeAgo date={each.date} />
+                  sent: <TimeAgo date={each.date.toDate()} />
                 </span>
               </div>
             </div>

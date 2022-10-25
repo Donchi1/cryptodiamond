@@ -29,10 +29,16 @@ const UserNav = () => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
   //const { setOpenSidebar, dark, setDark } = useContext(adminContext);
-  const [notifications, loading, error] = useGetCollection(
+  const [user, loading, errors] = useGetDocument(
+    "users",
+    auth.currentUser.uid,
+    {
+      snap: true,
+    }
+  );
+  const [notifications, loadings, error] = useGetCollection(
     `notifications/${auth.currentUser.uid}/notificationDatas`
   );
-  const user = useSelector((state) => state.admin.adminUser);
 
   const url = pathname.split("/")[2];
 

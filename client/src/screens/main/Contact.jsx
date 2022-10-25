@@ -7,10 +7,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Faq from "../../components/Faq";
 import Footer from "../../components/Footer";
-import {db} from "../../database/firebaseDb"
-import {collection, addDoc} from "firebase/firestore"
+import { db } from "../../database/firebaseDb";
+import { collection, addDoc } from "firebase/firestore";
 import Toast from "../../components/Alert";
-
 
 function Contact() {
   const [userData, setUserData] = useState({
@@ -18,40 +17,52 @@ function Contact() {
     email: "",
     subject: "",
     message: "",
-    loading: false
+    loading: false,
   });
-  const {name,
-    email,
-    subject,
-    loading,
-    message} = userData
+  const { name, email, subject, loading, message } = userData;
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    if(!name || !email || !message) return Toast.error.fire({ text: "Sorry!! Please fill all required field", icon: "info" });
-    setUserData({ ...userData, loading: true });
-    try{
 
-    await addDoc(collection(db, "contacts"), {
-      email,
-    subject,
-    message
-    })
-    setUserData({ ...userData, loading: false, name: "",
-    email: "",
-    subject: "",
-    message: "",  });
-     return Toast.success.fire({ text: "Thanks for contacting us we will get back to you soon.", icon: "success" });
-    }catch(err){
-      setUserData({ ...userData, loading: false,  name: "",
-    email: "",
-    subject: "",
-    message: "" });
-     return Toast.error.fire({ text: "Sorry your message could not be sent.", icon: "error" });
-      
+    if (!name || !email || !message)
+      return Toast.error.fire({
+        text: "Sorry!! Please fill all required field",
+        icon: "info",
+      });
+    setUserData({ ...userData, loading: true });
+    try {
+      await addDoc(collection(db, "contacts"), {
+        email,
+        subject,
+        message,
+      });
+      setUserData({
+        ...userData,
+        loading: false,
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      return Toast.success.fire({
+        text: "Thanks for contacting us we will get back to you soon.",
+        icon: "success",
+      });
+    } catch (err) {
+      setUserData({
+        ...userData,
+        loading: false,
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+      return Toast.error.fire({
+        text: "Sorry your message could not be sent.",
+        icon: "error",
+      });
     }
   };
   return (
@@ -75,8 +86,8 @@ function Contact() {
               <ul className="text-lg">
                 <li className="flex items-center mb-4 text-white gap-2">
                   <Icon2.HiPhone />
-                  <a href="tel:+4477-0688-1200" className="">
-                    +4477-0688-1200
+                  <a href="tel:+4475-9227-5869" className="">
+                    +4475-9227-5869
                   </a>
                 </li>
                 <li className="flex gap-2 text-white items-center mb-4">
@@ -93,7 +104,8 @@ function Contact() {
                 <li className="flex gap-2 text-white items-center">
                   <Icon2.HiLocationMarker size={30} />
                   <span className="">
-                    Kingsway House 9, Bank st, Aberdeen, Scothland United Kingdom, AB11 7QST
+                    Kingsway House 9, Bank st, Aberdeen, Scothland United
+                    Kingdom, AB11 7QST
                   </span>
                 </li>
               </ul>
@@ -121,7 +133,6 @@ function Contact() {
                       className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
                       value={userData.name}
                       onChange={handleChange}
-                      
                     />
                   </label>
                   <label className="w-full text-white">
@@ -133,7 +144,6 @@ function Contact() {
                       placeholder="Your Email"
                       value={userData.email}
                       onChange={handleChange}
-                      
                     />
                   </label>
                 </div>
@@ -146,7 +156,6 @@ function Contact() {
                     placeholder="Subject"
                     value={userData.subject}
                     onChange={handleChange}
-                   
                   />
                 </label>
                 <label className="w-full text-white ">
@@ -154,7 +163,6 @@ function Contact() {
                   <textarea
                     value={userData.message}
                     onChange={handleChange}
-                    
                     name="message"
                     className="text-gray-100 mt-2 outline-none h-[80px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
                   ></textarea>

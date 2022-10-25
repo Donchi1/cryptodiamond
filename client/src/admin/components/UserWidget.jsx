@@ -17,23 +17,26 @@ export default function UserWidget({ users }) {
         <table className="table">
           <tbody className="px-4 pb-4 ">
             {users?.map((each) => (
-              <tr key={each.id}>
+              <tr key={each.uid}>
                 <td className="px-6 py-2">
                   <img
-                    src={each.img}
+                    src={each.photo}
                     alt="profile"
                     className="w-[40px] h-[40px] rounded-full object-cover"
                   />
                 </td>
                 <td className="px-4">
-                  <span>{each.date}</span>
-                </td>
-                <td className="px-4">
                   <p>{each.firstname}</p>
                 </td>
                 <td className="px-4">
+                  <span>{each.email}</span>
+                </td>
+                <td className="px-4">
+                  <span>{each.initialDeposit}</span>
+                </td>
+                <td className="px-4">
                   <span
-                    onClick={() => navigate(`/adm/users/edit/${each.id}`)}
+                    onClick={() => navigate(`/adm/users/edit/${each.uid}`)}
                     className="flex gap-2 dark:text-white cursor-pointer capitalize transition-all duration-700 ease-linear hover:bg-gray-300 hover:text-blue-500 text-white bg-blue-500   py-2 px-4 rounded-lg"
                   >
                     <span>show</span>
@@ -42,7 +45,7 @@ export default function UserWidget({ users }) {
                 </td>
               </tr>
             ))}
-            {users.length === 0 && (
+            {users?.length === 0 && (
               <tr className="inline-block text-center primary-text pl-4 pb-4 uppercase ">
                 <td>
                   <span>No user Yet</span>

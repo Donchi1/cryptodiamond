@@ -7,11 +7,18 @@ import Toast from "../../components/Alert";
 
 function Contact({ contacts }) {
   const handleDelete = async (item) => {
-    await deleteDoc(doc(db, "contacts", item));
-    Toast.success.fire({
-      text: "successfully deleted contact",
-      icon: "success",
-    });
+    try {
+      await deleteDoc(doc(db, "contacts", item));
+      Toast.success.fire({
+        text: "successfully deleted contact",
+        icon: "success",
+      });
+    } catch (err) {
+      Toast.error.fire({
+        text: err,
+        icon: "error",
+      });
+    }
   };
   return (
     <div className="max-w-[100%] ">

@@ -7,13 +7,14 @@ import { db } from "../../database/firebaseDb";
 import Toast from "../../components/Alert";
 //import { userRow } from "../utils/UserData";
 
-export default function UserDatalist({ users }) {
+export default function UserDatalist({ users, setRefresh }) {
   const navigate = useNavigate();
 
   const handleDelete = async (id) => {
     //api call for delete
     try {
       await deleteDoc(doc(db, "users", id));
+      setRefresh(true);
       Toast.success.fire({
         icon: "success",
         text: "user successfully deleted",
@@ -32,7 +33,7 @@ export default function UserDatalist({ users }) {
         return (
           <div className="flex gap-4 items-center  ">
             <img
-              src={params.row.img}
+              src={params.row.photo}
               alt="pics"
               className="w-12 rounded-full h-12"
             />
@@ -95,7 +96,7 @@ export default function UserDatalist({ users }) {
         return (
           <>
             <button
-              onClick={() => navigate(`/adm/users/edit/${params.row.id}`)}
+              onClick={() => navigate(`/adm/users/edit/${params.row.uid}`)}
               className=" text-white px-4 py-2  outline-none border-none rounded-full bg-green-400"
             >
               Edit
@@ -119,6 +120,7 @@ export default function UserDatalist({ users }) {
       pageSize={8}
       disableSelectionOnClick
       autoHeight
+      getRowId={(row) => row.uid}
       onRowClick={() => {}}
       className="bg-primary2 h-screen !text-white "
     ></DataGrid>

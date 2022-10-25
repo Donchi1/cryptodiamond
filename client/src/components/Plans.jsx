@@ -37,10 +37,10 @@ function Plans() {
             </h4>
 
             <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-              $100 -$1500
+              $200 - $3000
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
-              <h6>15% after 5 days</h6>
+              <h6>10% after 5 days</h6>
             </div>
             <hr className="my-8" />
 
@@ -55,7 +55,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 0 USD +{" "}
+              Total 3000 USD +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>
@@ -87,7 +87,7 @@ function Plans() {
               $500 -$5999
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
-              <h6>15% after 5 days</h6>
+              <h6>10% after 5 days</h6>
             </div>
             <hr className="my-8" />
 
@@ -102,7 +102,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 0 USD +{" "}
+              Total 5999 USD +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>
@@ -134,7 +134,7 @@ function Plans() {
               $1000 -$13000
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
-              <h6>15% after 5day</h6>
+              <h6>10% after 5day</h6>
             </div>
             <hr className="my-8" />
 
@@ -149,7 +149,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 0 USD +{" "}
+              Total 13000 USD +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>

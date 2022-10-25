@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit"
 
 
 const initialState = {
-    adminUser:{}
+    adminUser:{},
+    users: []
 }
 
 const adminSlice = createSlice({
@@ -11,11 +12,15 @@ const adminSlice = createSlice({
     initialState,
     reducers: {
      getAdminUser:(state, action) => {
+         return state.adminUser = action.payload
+     },
+     getAllUsers:(state, action) => {
          console.log(action)
-        return state.adminUser = action.payload
+         
+        return state.users = action.payload
      }
     }
 })
 
-export const {getAdminUser} = adminSlice.actions
+export const {getAdminUser, getAllUsers} = adminSlice.actions
 export default adminSlice.reducer

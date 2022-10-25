@@ -19,6 +19,7 @@ import {
   where,
   updateDoc,
 } from "firebase/firestore";
+import { getAllUsers } from "../../state/adminAuthSlice";
 
 //import { adminContext } from "../../New-Project/context/AdminContext";
 
@@ -30,7 +31,17 @@ const AdminNav = () => {
   const [notifications, loading, error] = useGetCollection(
     `notifications/${auth.currentUser.uid}/notificationDatas`
   );
+  useEffect(() => {
+    const getUsers = async () => {
+      const use = await getDocs(
+        query(collection(db, "users"), where("isAdmin", "!=", true))
+      );
+      const info = use.docs.map((each) => each.data());
 
+      dispatch(getAllUsers(info));
+    };
+    getUsers();
+  }, []);
   const { pathname } = useLocation();
   const [openDropdown, setOpenDropdown] = useState(false);
   const [openDropdownM, setOpenDropdownM] = useState(false);

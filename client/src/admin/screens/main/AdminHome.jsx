@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import AnalyticsCard from "../../components/AnalyticsCard";
 import UserWidget from "../../components/UserWidget";
@@ -8,16 +8,27 @@ import TransactionWidget from "../../components/TransactionWidget";
 import InfoWidget from "../../components/InfoWidget";
 import Footer from "../../components/Footer";
 import useCollectionGroup from "../../../components/hooks/UseCollectionGroup";
-import { auth } from "../../../database/firebaseDb";
+import { auth, db } from "../../../database/firebaseDb";
 import Toast from "../../../components/Alert";
 import converter from "../../../utils/converter";
 import AdminNav from "../../components/AdminNav";
-import useCollection from "../../../components/hooks/UseCollection";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function Dashboard() {
-  const [users, loading, error] = useCollection("users", {
-    snap: true,
-  });
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const getUsers = async () => {
+      const use = await getDocs(
+        query(collection(db, "users"), where("isAdmin", "!=", true))
+      );
+      const info = use.docs.map((each) => each.data());
+      setUsers(info);
+    };
+    getUsers();
+  }, []);
+
+  console.log(users);
   const [transactions, isLoading, isError] =
     useCollectionGroup("transactionDatas");
 
@@ -89,7 +100,7 @@ function Dashboard() {
   };
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <Suspense fallback={Toast.modal()}>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -100,11 +111,7 @@ function Dashboard() {
             <div className="flex lg:gap-8 gap-4  flex-col lg:flex-row">
               <AnalyticsCard
                 title="Total Users"
-                info={
-                  getUserData()?.initialDeposits
-                    ? converter(Number(getUserData()?.initialDeposits))
-                    : converter(Number("000"))
-                }
+                info={users.length}
                 arrow={initialDCheck() >= 50 ? "up" : "fail"}
                 success={initialDCheck() >= 50 ? true : false}
                 icon="s"
@@ -112,8 +119,8 @@ function Dashboard() {
               <AnalyticsCard
                 title="Deposites"
                 info={
-                  getUserData().totalBalances
-                    ? converter(Number(getUserData()?.totalBalances))
+                  getUserData().initialDeposits
+                    ? converter(Number(getUserData()?.initialDeposits))
                     : converter(Number("000"))
                 }
                 arrow={totalDCheck() >= 50 ? "up" : "fail"}
@@ -121,7 +128,7 @@ function Dashboard() {
                 icon="u"
               />
               <AnalyticsCard
-                title="Transactions"
+                title="Bonus Payout"
                 info={
                   getUserData()?.bonuses
                     ? converter(Number(getUserData()?.bonuses))
@@ -135,7 +142,11 @@ function Dashboard() {
             <Charts transactions={transactions} />
             <div className="flex gap-4 flex-col lg:flex-row ">
               <UserWidget users={users} />
-              <InfoWidget user={getUserData()} transactions={transactions} />
+              <InfoWidget
+                user={getUserData()}
+                transactions={transactions}
+                length={users.length}
+              />
             </div>
             <TransactionWidget transactions={transactions} />
           </section>

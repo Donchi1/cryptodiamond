@@ -2,7 +2,7 @@ import React from "react";
 import * as Icons from "react-icons/bs";
 import converter from "../../utils/converter";
 
-function InfoWidget({ transactions, user }) {
+function InfoWidget({ transactions, user, length }) {
   return (
     <div className="bg-primary2 rounded-lg mt-4 flex-1 pb-4  px-6 ">
       <div className="">
@@ -27,10 +27,15 @@ function InfoWidget({ transactions, user }) {
           </li>
           <li className="flex items-center gap-3 text-[1rem]">
             <Icons.BsCash className="primary-text text-2xl " />
-            <span> Total Users : </span>
+            <span> Total Bonus : </span>
             <span>
               {user?.bonuses ? converter(user?.bonuses) : converter("000")}
             </span>
+          </li>
+          <li className="flex items-center gap-3 text-[1rem]">
+            <Icons.BsCash className="primary-text text-2xl " />
+            <span> Total Users : </span>
+            <span>{length}</span>
           </li>
           <li className="flex items-center gap-3 text-[1rem]">
             <Icons.BsDiamond className="primary-text text-2xl " />

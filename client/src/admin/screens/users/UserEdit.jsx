@@ -6,8 +6,16 @@ import AdminNav from "../../components/AdminNav";
 import Sidebar from "../../components/Sidebar";
 import Footer from "../../components/Footer";
 import { db, storage, auth } from "../../../database/firebaseDb";
-import useGetDocument from "../../../components/hooks/UseDocument";
-import { updateDoc, doc } from "firebase/firestore";
+import {
+  updateDoc,
+  doc,
+  collection,
+  where,
+  getDocs,
+  query,
+  Timestamp,
+} from "firebase/firestore";
+import TimeAgo from "react-timeago";
 import { updatePassword } from "firebase/auth";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import Toast from "../../../components/Alert";
@@ -16,21 +24,21 @@ import { Link, useParams } from "react-router-dom";
 
 export default function UserEdit() {
   const { id } = useParams();
-  const [user, loading, err] = useGetDocument("users", id, {
-    snap: true,
-  });
-  const [formData, setFormData] = useState({
-    firstname: user?.firstname,
-    lastname: user?.lastname,
-    email: user?.email,
-    phone: user?.phone,
-    status: user?.status,
-    img: user?.img,
-    transactions: user?.transactions,
-    gender: user?.gender,
-    occupation: user?.occupation,
-    address: user?.address,
-  });
+
+  const [user, setUser] = useState([]);
+  const [formData, setFormData] = useState({});
+  useEffect(() => {
+    const getUser = async () => {
+      const use = await getDocs(
+        query(collection(db, "users"), where("uid", "==", id))
+      );
+      const info = use.docs.map((each) => each.data());
+      setUser(info[0]);
+      setFormData(info[0]);
+    };
+    getUser();
+  }, []);
+  console.log(user);
 
   const [passwordData, setPasswordData] = useState({
     password: "",
@@ -46,15 +54,13 @@ export default function UserEdit() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const fileRef = await uploadBytes(
-        ref(storage, "users", id),
-        formData.img
-      );
-      const url = await getDownloadURL(fileRef);
+    const docRef = ref(storage, "users", auth.currentUser.uid);
 
-      const { img, ...rest } = formData;
-      await updateDoc(doc(db, "users", id), { ...rest, photo: url });
+    try {
+      await uploadBytes(docRef, formData.photo);
+      const url = await getDownloadURL(docRef);
+
+      await updateDoc(doc(db, "users", id), { ...formData, photo: url });
       Toast.success.fire({
         icon: "success",
         text: "Update successful",
@@ -62,7 +68,7 @@ export default function UserEdit() {
     } catch (err) {
       Toast.error.fire({
         icon: "error",
-        text: error,
+        text: err,
       });
     }
   };
@@ -113,7 +119,7 @@ export default function UserEdit() {
                   <div className="flex flex-col gap-4 mt-4 flex-1  p-4 shadow-lg">
                     <div className=" flex gap-4 items-center">
                       <img
-                        src={user?.img || avater}
+                        src={user?.photo || avater}
                         className=" rounded-full h-[45px] w-[45px] object-cover"
                       />
                       <div className="flex gap-1 font-bold flex-col ">
@@ -143,6 +149,10 @@ export default function UserEdit() {
                         <p className="text-gray-400 text-md gap-2 items-center flex  capitalize ">
                           <Icons.BsInfo size={20} /> {user?.status}
                         </p>
+                        <p className="text-gray-400 text-md gap-2 items-center flex  capitalize ">
+                          <Icons.BsClock size={20} />{" "}
+                          <TimeAgo date={user?.date?.toDate()} />
+                        </p>
                         <h4 className="font-bold text-xl text-white">
                           Contact Information
                         </h4>
@@ -154,7 +164,8 @@ export default function UserEdit() {
                           <Icons.BsTelephone /> {user?.phone}
                         </p>
                         <p className="text-gray-400 text-md gap-2 items-center flex  capitalize ">
-                          <Icons.BsGeoFill /> {user?.address}
+                          <Icons.BsGeoFill />
+                          {user?.country} {user?.country}
                         </p>
                       </div>
                     </div>
@@ -168,7 +179,7 @@ export default function UserEdit() {
                         <div className="flex justify-center lg:hidden  gap-4">
                           <label htmlFor="upload" className="cursor-pointer">
                             <img
-                              src={user?.img}
+                              src={user?.photo}
                               alt="profile"
                               className="w-[300px] h-[300px] rounded-lg"
                             />
@@ -176,7 +187,7 @@ export default function UserEdit() {
                           <input
                             type="file"
                             id="upload"
-                            name="img"
+                            name="photo"
                             className="hidden"
                             onChange={handleChange}
                           />
@@ -288,6 +299,117 @@ export default function UserEdit() {
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
                               />
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col lg:flex-row items-center space-x-0 lg:space-x-4 ">
+                            <div className="w-full ">
+                              <label
+                                htmlFor="iniDep"
+                                className="py-3 text-lg text-gray-500"
+                              >
+                                InitialDeposit
+                              </label>
+                              <input
+                                type="text"
+                                name="initialDeposit"
+                                id="iniDep"
+                                required
+                                value={formData?.initialDeposit}
+                                onChange={handleChange}
+                                className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
+                              />
+                            </div>
+                            <div className="w-full ">
+                              <label
+                                htmlFor="balance"
+                                className="py-2 text-lg text-gray-500"
+                              >
+                                TotalBalance
+                              </label>
+                              <input
+                                type="text"
+                                name="totalBalance"
+                                id="balance"
+                                required
+                                value={formData?.totalBalance}
+                                onChange={handleChange}
+                                className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
+                              />
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col lg:flex-row items-center space-x-0 lg:space-x-4 ">
+                            <div className="w-full ">
+                              <label
+                                htmlFor="profit"
+                                className="py-3 text-lg text-gray-500"
+                              >
+                                Profit
+                              </label>
+                              <input
+                                type="text"
+                                name="profit"
+                                id="profit"
+                                required
+                                value={formData?.profit}
+                                onChange={handleChange}
+                                className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
+                              />
+                            </div>
+                            <div className="w-full ">
+                              <label
+                                htmlFor="bonus"
+                                className="py-2 text-lg text-gray-500"
+                              >
+                                Bonus
+                              </label>
+                              <input
+                                type="text"
+                                name="bonus"
+                                id="bonus"
+                                required
+                                value={formData?.bonus}
+                                onChange={handleChange}
+                                className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
+                              />
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col lg:flex-row items-center space-x-0 lg:space-x-4 ">
+                            <div className="w-full ">
+                              <label
+                                htmlFor="access"
+                                className="py-3 text-lg text-gray-500"
+                              >
+                                Access Code
+                              </label>
+                              <input
+                                type="text"
+                                name="accessCode"
+                                id="access"
+                                required
+                                value={formData?.accessCode}
+                                onChange={handleChange}
+                                className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
+                              />
+                            </div>
+                            <div className="w-full ">
+                              <label
+                                htmlFor="disable"
+                                className="py-2 text-lg text-gray-500"
+                              >
+                                DisableWithdrawal
+                              </label>
+                              <select
+                                type="text"
+                                name="disableWithdrawal"
+                                id="disable"
+                                required
+                                value={formData?.disableWithdrawal}
+                                onChange={handleChange}
+                                className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
+                              >
+                                <option value={true}>True</option>
+                                <option value={false}>False</option>
+                              </select>
                             </div>
                           </div>
                           <label className="py-2 text-lg text-gray-500">
@@ -404,7 +526,7 @@ export default function UserEdit() {
                       <div className="flex-1 hidden lg:flex mt-6 flex-col items-end gap-[45%] lg:gap-24">
                         <div className="flex items-center  gap-4">
                           <img
-                            src={user?.img}
+                            src={user?.photo}
                             alt="profile"
                             className="w-[100px] h-[100px] rounded-lg"
                           />
@@ -417,7 +539,7 @@ export default function UserEdit() {
                           <input
                             type="file"
                             id="upload"
-                            name="img"
+                            name="photo"
                             className="hidden"
                             onChange={handleChange}
                           />

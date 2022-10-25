@@ -14,7 +14,7 @@ function Notifications() {
   );
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <Suspense fallback={Toast.modal()}>
       <UserNav />
       <div className="flex">
         <Sidebar />

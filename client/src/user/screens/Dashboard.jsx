@@ -12,11 +12,8 @@ import useGetCollection from "../../components/hooks/UseCollection";
 import { auth } from "../../database/firebaseDb";
 import Toast from "../../components/Alert";
 import converter from "../../utils/converter";
-import { useSelector } from "react-redux";
 
 function Dashboard() {
-  const t = useSelector((state) => state);
-
   const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
   });
@@ -76,7 +73,7 @@ function Dashboard() {
   };
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <Suspense fallback={Toast.modal()}>
       <UserNav />
       <div className="flex ">
         <Sidebar />

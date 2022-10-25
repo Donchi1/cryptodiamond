@@ -23,7 +23,7 @@ function useGetDocument(colls, docId, { snap, setFormData }) {
             if (setFormData) setFormData({});
           }
         );
-        unsubscribe();
+        return unsubscribe;
       } else {
         try {
           const data = await getDoc(doc(db, colls, docId));

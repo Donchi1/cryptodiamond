@@ -21,6 +21,8 @@ export default function Profile() {
     setFormData: setFormData,
   });
 
+  console.log(user);
+
   const {
     firstname,
     lastname,
@@ -172,7 +174,7 @@ export default function Profile() {
 
   return (
     <>
-      <Suspense fallback={loading && Toast.modal()}>
+      <Suspense fallback={Toast.modal()}>
         <UserNav />
         <div className="flex">
           <Sidebar />

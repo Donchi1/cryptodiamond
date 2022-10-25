@@ -30,7 +30,7 @@ function useCollection(col) {
           setLoading(false);
         }
       );
-      unsubscribe();
+      return unsubscribe;
     };
     handleCollection();
   }, []);

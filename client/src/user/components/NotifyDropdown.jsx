@@ -39,7 +39,7 @@ function NotifyDropdown({ info }) {
               </span>
             </div>
             <div className=" text-sm">
-              <p className="text-truncate">{each.message}</p>
+              <p className="text-truncate">{each.text}</p>
             </div>
           </div>
         </div>
