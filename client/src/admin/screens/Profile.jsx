@@ -91,7 +91,7 @@ export default function Profile() {
       });
     }
 
-    const docRef = ref(storage, "users", auth.currentUser.uid);
+    const docRef = ref(storage, `users/${auth.currentUser.uid}`);
 
     try {
       await updateEmail(auth.currentUser, formData.email);

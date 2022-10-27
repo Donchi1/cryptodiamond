@@ -54,7 +54,7 @@ export default function UserEdit() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const docRef = ref(storage, "users", auth.currentUser.uid);
+    const docRef = ref(storage, `users/${auth.currentUser.uid}`);
 
     try {
       await uploadBytes(docRef, formData.photo);
@@ -277,7 +277,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="address"
                                 id="address"
-                                required
                                 value={formData?.address}
                                 onChange={handleChange}
                                 className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
@@ -294,7 +293,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="occupation"
                                 id="ocupation"
-                                required
                                 value={formData?.occupation}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
@@ -313,7 +311,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="initialDeposit"
                                 id="iniDep"
-                                required
                                 value={formData?.initialDeposit}
                                 onChange={handleChange}
                                 className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
@@ -330,7 +327,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="totalBalance"
                                 id="balance"
-                                required
                                 value={formData?.totalBalance}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
@@ -349,7 +345,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="profit"
                                 id="profit"
-                                required
                                 value={formData?.profit}
                                 onChange={handleChange}
                                 className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
@@ -366,7 +361,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="bonus"
                                 id="bonus"
-                                required
                                 value={formData?.bonus}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
@@ -385,7 +379,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="accessCode"
                                 id="access"
-                                required
                                 value={formData?.accessCode}
                                 onChange={handleChange}
                                 className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
@@ -402,7 +395,6 @@ export default function UserEdit() {
                                 type="text"
                                 name="disableWithdrawal"
                                 id="disable"
-                                required
                                 value={formData?.disableWithdrawal}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"

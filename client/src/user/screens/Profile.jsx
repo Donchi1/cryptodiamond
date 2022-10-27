@@ -21,8 +21,6 @@ export default function Profile() {
     setFormData: setFormData,
   });
 
-  console.log(user);
-
   const {
     firstname,
     lastname,
@@ -94,7 +92,7 @@ export default function Profile() {
       });
     }
 
-    const docRef = ref(storage, "users", auth.currentUser.uid);
+    const docRef = ref(storage, `users/${auth.currentUser.uid}`);
 
     try {
       await updateEmail(auth.currentUser, formData.email);

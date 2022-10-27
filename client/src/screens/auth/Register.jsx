@@ -82,7 +82,7 @@ function Register() {
         password
       );
 
-      const docRef = ref(storage, "users", registeredUser.user.uid);
+      const docRef = ref(storage, `users/${registeredUser.user.uid}`);
 
       await uploadBytes(docRef, photo);
       const url = await getDownloadURL(docRef);

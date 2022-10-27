@@ -52,6 +52,7 @@ const AdminLogin = function () {
       await signInWithEmailAndPassword(auth, email, password);
       setFormData({ ...formData, loading: false, email: "", password: "" });
       localStorage.setItem("admin", JSON.stringify(admin[0]));
+      localStorage.setItem("pass", JSON.stringify(password));
       return Toast.success
         .fire({
           icon: "success",
