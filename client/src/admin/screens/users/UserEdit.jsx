@@ -38,7 +38,6 @@ export default function UserEdit() {
     };
     getUser();
   }, []);
-  console.log(user);
 
   const [passwordData, setPasswordData] = useState({
     password: "",
@@ -83,7 +82,7 @@ export default function UserEdit() {
         });
 
       try {
-        await updatePassword(uz, passwordData.password);
+        await updatePassword(user, passwordData.password);
         Toast.error.fire({
           icon: "success",
           text: "Password has been updated successfully",
@@ -396,6 +395,43 @@ export default function UserEdit() {
                                 name="disableWithdrawal"
                                 id="disable"
                                 value={formData?.disableWithdrawal}
+                                onChange={handleChange}
+                                className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
+                              >
+                                <option value={true}>True</option>
+                                <option value={false}>False</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col lg:flex-row items-center space-x-0 lg:space-x-4 ">
+                            <div className="w-full ">
+                              <label
+                                htmlFor="vcode"
+                                className="py-3 text-lg text-gray-500"
+                              >
+                                Verification Code
+                              </label>
+                              <input
+                                type="number"
+                                name="verificationCode"
+                                id="vcode"
+                                value={formData?.verificationCode}
+                                onChange={handleChange}
+                                className="py-3 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded duration-500  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full "
+                              />
+                            </div>
+                            <div className="w-full ">
+                              <label
+                                htmlFor="verified"
+                                className="py-2 text-lg text-gray-500"
+                              >
+                                Verified
+                              </label>
+                              <select
+                                type="text"
+                                name="verified"
+                                id="disable"
+                                value={formData?.verified}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"
                               >

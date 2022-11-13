@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { auth } from "../database/firebaseDb";
+import useGetDocument from "./hooks/UseDocument";
 
 function Hero() {
   const authUser = auth.currentUser;
+  const [user, loading, error] = useGetDocument("users", authUser?.uid, {
+    snap: true,
+  });
+
   return (
     <header className="w-full h-screen  hero -mb-14">
       <div className="flex h-screen items-center justify-center">
@@ -33,14 +38,16 @@ function Hero() {
             initial={{ opacity: 0, translateY: "60px" }}
             animate={{ opacity: 1, translateY: 0 }}
             transition={{ easing: ["linear"], duration: 1, delay: 0.8 }}
-            href={`${authUser ? "/user/dashboard" : "/auth/login"}`}
+            href={`${
+              authUser && user?.verified ? "/user/dashboard" : "/auth/login"
+            }`}
           >
             <motion.span
               initial={{ opacity: 0, translateY: "60px" }}
               animate={{ opacity: 1, translateY: 0 }}
               transition={{ easing: ["linear"], duration: 1, delay: 0.8 }}
             >
-              {authUser ? "Dashboard" : "Get Started"}
+              {authUser && user?.verified ? "Dashboard" : "Get Started"}
             </motion.span>
           </motion.a>
         </div>

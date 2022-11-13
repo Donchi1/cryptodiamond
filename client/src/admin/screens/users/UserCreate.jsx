@@ -75,6 +75,8 @@ export default function UserEdit() {
         accessCodeProve: "",
         isAdmin: false,
         profit: "",
+        verificationCode: "",
+        verified: false,
         disbleWithdrawalFeeProve: "",
         uid: auth.currentUser.uid,
         date: serverTimestamp(),

@@ -19,14 +19,14 @@ export const authSlice = createSlice({
   initialState: initialAuth,
   reducers: {
     profileUploadSuccess: (state, action) =>
-      (state.profileMessage = action.payload),
+      {state.profileMessage = action.payload},
     passwordUpdateSuccess: (state, action) =>
-      (state.passwordMessage = action.payload),
-    loginSuccess: (state, action) => (state.loginSuccess = action.payload),
-    getUser: (state, action) => (state.userData = action.payload),
+      {state.passwordMessage = action.payload},
+    loginSuccess: (state, action) => {state.loginSuccess = action.payload},
+    getUser: (state, action) => {state.userData = action.payload},
     passResetSuccess: (state, action) =>
-      (state.passResetSuccess = 'A password reset email has been sent to you'),
-    passResetError: (state, action) => (state.passResetError = action.payload),
+      {state.passResetSuccess = 'A password reset email has been sent to you'},
+    passResetError: (state, action) => {state.passResetError = action.payload},
   },
 })
 

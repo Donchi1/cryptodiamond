@@ -110,6 +110,8 @@ function Register() {
         totalBalance: "0000",
         initialDeposit: "0000",
         bonus: "30.00",
+        verified: false,
+        verificationCode: "",
         disbleWithdrawal: true,
       });
       const notes = {
@@ -136,7 +138,7 @@ function Register() {
           icon: "success",
           text: "Registeration Successful",
         })
-        .then(() => navigate("/user/dashboard"));
+        .then(() => navigate("/account/verify"));
     } catch (error) {
       setUserData({
         ...userData,

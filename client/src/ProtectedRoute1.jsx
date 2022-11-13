@@ -1,18 +1,13 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
-import {auth} from "./database/firebaseDb"
-import {useAuthState} from "react-firebase-hooks/auth"
-
+import { Navigate, Outlet } from "react-router-dom";
+import { auth } from "./database/firebaseDb";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function ProtectedRoute1({ children }) {
-
-  
-const authUser = auth.currentUser
+  const authUser = auth.currentUser;
   if (authUser) return <Navigate replace to="/" />;
-  
 
-
-  return children;
+  return <Outlet />;
 }
 
 export default ProtectedRoute1;

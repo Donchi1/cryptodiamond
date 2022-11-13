@@ -43,6 +43,8 @@ import useGetDocument from "./components/hooks/UseDocument";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { getAdminUser } from "./state/adminAuthSlice";
 import { db } from "./database/firebaseDb";
+import Verify from "./screens/auth/verify";
+import ProtectedRouteV from "./ProtectRouteV";
 
 function App() {
   return (
@@ -57,22 +59,18 @@ function App() {
             </>
           }
         ></Route>
+        <Route path="/auth" element={<ProtectedRoute1 />}>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
         <Route
-          path="/auth/login"
+          path="/account/verify"
           element={
-            <ProtectedRoute1>
-              <Login />
-            </ProtectedRoute1>
+            <ProtectedRouteV>
+              <Verify />
+            </ProtectedRouteV>
           }
-        ></Route>
-        <Route
-          path="/auth/register"
-          element={
-            <ProtectedRoute1>
-              <Register />
-            </ProtectedRoute1>
-          }
-        ></Route>
+        />
 
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />

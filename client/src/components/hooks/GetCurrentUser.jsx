@@ -17,7 +17,8 @@ export const useGetCurrentUser = () => {
       if (user) {
         setUser(user);
         getDoc(doc(db, "users", user.uid)).then((fireUser) => {
-          dispatch(getUser(fireUser.data()));
+          const { date, ...userInfo } = fireUser.data();
+          dispatch(getUser(userInfo));
         });
         setLoading(false);
       } else {
