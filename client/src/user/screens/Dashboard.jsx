@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import UserNav from "../components/UserNav";
 import Sidebar from "../components/Sidebar";
 import AnalyticsCard from "../components/AnalyticsCard";
@@ -10,7 +10,6 @@ import Footer from "../components/Footer";
 import useGetDocument from "../../components/hooks/UseDocument";
 import useGetCollection from "../../components/hooks/UseCollection";
 import { auth } from "../../database/firebaseDb";
-import Toast from "../../components/Alert";
 import converter from "../../utils/converter";
 
 function Dashboard() {
