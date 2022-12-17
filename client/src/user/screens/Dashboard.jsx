@@ -115,7 +115,7 @@ function Dashboard() {
                 icon="t"
               />
             </div>
-            <Charts transactions={transactions} />
+            {/* <Charts transactions={transactions} /> */}
             <div className="flex gap-4 flex-col lg:flex-row overflow-x-hidden">
               <InfoWidget transactions={transactions} user={user} />
               <TransactionWidget transactions={transactions} />
