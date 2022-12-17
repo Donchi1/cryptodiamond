@@ -139,7 +139,7 @@ function Dashboard() {
                 icon="t"
               />
             </div>
-            {/* <Charts transactions={transactions} /> */}
+            <Charts transactions={transactions} />
             <div className="flex gap-4 flex-col lg:flex-row ">
               <UserWidget users={users} />
               <InfoWidget

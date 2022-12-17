@@ -25,7 +25,11 @@ export default function Charts({ transactions }) {
     { name: "Dec", amt: 200 },
   ];
   return (
-    <ResponsiveContainer className="shadow-lg lg:!h-[50vh]  !h-[60vh]  rounded-lg mt-4 bg-primary2  pb-4 lg:pb-0">
+    <ResponsiveContainer
+      width={"100%"}
+      height={400}
+      className="shadow-lg  rounded-lg mt-4 bg-primary2  pb-4 lg:pb-0"
+    >
       <LineChart
         width={150}
         height={50}
