@@ -7,6 +7,8 @@ export default function UserWidget({ users }) {
   const [recentUsers, setResentUsers] = useState([]);
   const navigate = useNavigate();
 
+  const filteredUsers = users?.sort((a, b) => a.date - b.date).splice(0, 10);
+
   return (
     <section className="widget2 shadow-lg mt-4 text-white flex-[2]   rounded-lg  dark:bg-gray-800 bg-primary2 h-full ">
       <div className="py-4">
@@ -16,7 +18,7 @@ export default function UserWidget({ users }) {
       <div className="dark:text-gray-500 pt-4 lg:overflow-x-hidden overflow-x-scroll">
         <table className="table">
           <tbody className="px-4 pb-4 ">
-            {users?.map((each) => (
+            {filteredUsers?.map((each) => (
               <tr key={each.uid}>
                 <td className="px-6 py-2">
                   <img

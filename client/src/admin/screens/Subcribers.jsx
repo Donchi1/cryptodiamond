@@ -1,6 +1,5 @@
-import React, { Suspense } from "react";
+import React from "react";
 
-import Toast from "../../components/Alert";
 import AdminNav from "../components/AdminNav";
 import Sidebar from "../components/Sidebar";
 import Pagination from "../components/Pagination";
@@ -12,7 +11,7 @@ export default function Subcribers() {
   const [subcribers, loading, error] = useCollection("newsletters");
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -24,6 +23,6 @@ export default function Subcribers() {
         </div>
       </div>
       <Footer />
-    </Suspense>
+    </>
   );
 }

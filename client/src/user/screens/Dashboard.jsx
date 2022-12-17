@@ -73,7 +73,7 @@ function Dashboard() {
   };
 
   return (
-    <Suspense fallback={Toast.modal()}>
+    <>
       <UserNav />
       <div className="flex ">
         <Sidebar />
@@ -125,7 +125,7 @@ function Dashboard() {
           <Footer />
         </div>
       </div>
-    </Suspense>
+    </>
   );
 }
 

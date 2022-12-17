@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import Toast from "../../../components/Alert";
 import AdminNav from "../../components/AdminNav";
@@ -11,7 +11,7 @@ import Footer from "../../components/Footer";
 export default function AdminContacts() {
   const [contacts, loading, error] = useCollection("contacts");
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -23,6 +23,6 @@ export default function AdminContacts() {
         </div>
       </div>
       <Footer />
-    </Suspense>
+    </>
   );
 }

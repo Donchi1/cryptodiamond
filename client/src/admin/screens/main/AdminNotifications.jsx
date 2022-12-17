@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Footer from "../../components/Footer";
 import Pagination from "../../components/Pagination";
 import Sidebar from "../../components/Sidebar";
@@ -6,7 +6,6 @@ import AdminNav from "../../components/AdminNav";
 import { auth } from "../../../database/firebaseDb";
 import NotifyMessage from "../../components/NotifyMessage";
 import useGetCollection from "../../../components/hooks/UseCollection";
-import Toast from "../../../components/Alert";
 
 function AdminNotifications() {
   const [notifications, loading, error] = useGetCollection(
@@ -14,7 +13,7 @@ function AdminNotifications() {
   );
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -26,7 +25,7 @@ function AdminNotifications() {
         </div>
       </div>
       <Footer />
-    </Suspense>
+    </>
   );
 }
 

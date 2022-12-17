@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 
 import Toast from "../../../components/Alert";
 import TransactionDatalist from "../../components/TransactionDatalist";
@@ -12,7 +12,7 @@ export default function AdminTransactions() {
   const [transactions, loading, error] = useCollectionGroup("transactionDatas");
 
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -24,6 +24,6 @@ export default function AdminTransactions() {
         </div>
       </div>
       <Footer />
-    </Suspense>
+    </>
   );
 }

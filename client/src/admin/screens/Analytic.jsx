@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import Footer from "../components/Footer";
 import Pagination from "../components/Pagination";
 import Sidebar from "../components/Sidebar";
@@ -14,7 +14,7 @@ const Analytics = () => {
     return [{ name: each.name, amount: each.initialDeposit }];
   });
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <AdminNav />
       <div className="flex">
         <Sidebar />
@@ -27,7 +27,7 @@ const Analytics = () => {
           <Footer />
         </div>
       </div>
-    </Suspense>
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import avater from "/avatar.png";
 import * as Icons from "react-icons/bs";
 import Footer from "../components/Footer";
@@ -171,7 +171,7 @@ export default function Profile() {
 
   return (
     <>
-      <Suspense fallback={Toast.modal()}>
+      <>
         <AdminNav />
         <div className="flex">
           <Sidebar />
@@ -547,7 +547,7 @@ export default function Profile() {
             <Footer />
           </div>
         </div>
-      </Suspense>
+      </>
     </>
   );
 }
