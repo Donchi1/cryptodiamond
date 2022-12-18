@@ -12,6 +12,7 @@ function CountrySelect({ userData, setUserData }) {
         onChange={(e) => setUserData({ ...userData, country: e.target.value })}
       >
         {" "}
+        <option>Select Country</option>
         <option value="Afghanistan">Afghanistan</option>
         <option value="Albania">Albania</option>
         <option value="Algeria">Algeria</option>

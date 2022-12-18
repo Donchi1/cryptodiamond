@@ -80,7 +80,7 @@ function Navbar() {
                   Contact
                 </a>
               </li>
-              <li className=" transition-all ease-linear duration-700  pt-2   ">
+              <li className=" transition-all ease-linear duration-700  pt-2 px-2  ">
                 <a
                   href="/auth/login"
                   className="btn-primary inline-block w-full hover:opacity-90 transition-all ease-linear duration-500"
@@ -88,7 +88,7 @@ function Navbar() {
                   <span>Login</span>
                 </a>
               </li>
-              <li className=" transition-all ease-linear duration-700     ">
+              <li className=" transition-all ease-linear duration-700   px-2  ">
                 <a
                   href="/auth/register"
                   className="btn-secondary inline-block w-full hover:opacity-90 transition-all ease-linear duration-500"
