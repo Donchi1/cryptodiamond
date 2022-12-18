@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import AnalyticsCard from "../../components/AnalyticsCard";
 import UserWidget from "../../components/UserWidget";
@@ -28,7 +28,6 @@ function Dashboard() {
     getUsers();
   }, []);
 
-  console.log(users);
   const [transactions, isLoading, isError] =
     useCollectionGroup("transactionDatas");
 
@@ -139,7 +138,7 @@ function Dashboard() {
                 icon="t"
               />
             </div>
-            {/* <Charts transactions={transactions} /> */}
+            <Charts transactions={transactions} />
             <div className="flex gap-4 flex-col lg:flex-row ">
               <UserWidget users={users} />
               <InfoWidget

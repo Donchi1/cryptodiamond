@@ -10,7 +10,7 @@ export default function TransactionWidget({ transactions }) {
           Latest Transactions
         </h1>
         <Link
-          to="/user/history"
+          to="/adm/transactions"
           className="primary-text  uppercase w-[30%] lg:w-auto hover:opacity-80 text-sm"
         >
           View More
@@ -40,27 +40,27 @@ export default function TransactionWidget({ transactions }) {
           </thead>
           <tbody className=" pt-4  dark:bg-gray-800 dark:text-white">
             {transactions?.map((each) => (
-              <tr className="text-gray-500">
+              <tr className="text-gray-500" key={each.id}>
                 <td className=" flex p-4  items-center gap-2">
-                  {each.uid.slice(1, 20)}
+                  {each?.uid?.slice(1, 20)}
                 </td>
-                <td className="p-4  whitespace-nowrap">{each.type}</td>
+                <td className="p-4  whitespace-nowrap">{each?.type}</td>
                 <td className="  pl-2">
-                  <TimeAgo date={each.date.toDate()} />
+                  <TimeAgo date={each?.date?.toDate()} />
                 </td>
-                <td className="p-4  whitespace-nowrap">{each.amount}</td>
+                <td className="p-4  whitespace-nowrap">{each?.amount}</td>
                 <td className="p-4  whitespace-nowrap">
-                  {each.status === "success" && (
+                  {each?.status === "success" && (
                     <span className="rounded-full border pb-3 bg-green-400 text-white border-green-400 text-center py-2 px-4">
                       success
                     </span>
                   )}
-                  {each.status === "pending" && (
+                  {each?.status === "pending" && (
                     <span className="rounded-full border pb-3 bg-yellow-400 text-white border-yellow-400 text-center py-2 px-4">
                       Pending
                     </span>
                   )}
-                  {each.status === "failed" && (
+                  {each?.status === "failed" && (
                     <span className="rounded-full border pb-3 bg-red-400 text-white border-red-400 text-center py-2 px-4">
                       Failed
                     </span>

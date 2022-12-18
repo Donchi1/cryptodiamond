@@ -18,7 +18,6 @@ import { useSelector } from "react-redux";
 export default function Profile() {
   const user = JSON.parse(localStorage.getItem("admin"));
   const [formData, setFormData] = useState(user);
-  console.log(user);
 
   const {
     firstname,

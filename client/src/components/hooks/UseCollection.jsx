@@ -18,21 +18,20 @@ function useCollection(col) {
   console.log(myCollection);
 
   useEffect(() => {
-    const handleCollection = () => {
-      const unsubscribe = onSnapshot(
-        collection(db, col),
-        (qsnap) => {
-          setMyCollection(qsnap.docs.map((each) => each.data()));
-          setLoading(false);
-        },
-        (err) => {
-          setError(err.message);
-          setLoading(false);
-        }
-      );
-      return unsubscribe;
-    };
-    handleCollection();
+    const unsubscribe = onSnapshot(
+      collection(db, col),
+      (qsnap) => {
+        setMyCollection(
+          qsnap.docs.map((each) => ({ ...each.data(), id: each.id }))
+        );
+        setLoading(false);
+      },
+      (err) => {
+        setError(err.message);
+        setLoading(false);
+      }
+    );
+    return unsubscribe;
   }, []);
 
   return [myCollection, loading, error];

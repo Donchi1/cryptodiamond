@@ -8,31 +8,27 @@ import {
 import { db } from "../../database/firebaseDb";
 
 function useCollectionGroup(colls) {
-  const [collection, setcollection] = useState([]);
+  const [collection, setCollection] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getGroups = () => {
-      const sub = onSnapshot(
-        query(collectionGroup(db, colls), orderBy("date", "desc")),
-        (qs) => {
-          setcollection(
-            qs.docs.map((each) => {
-              each.data();
-            })
-          );
-          setError(null);
-          setLoading(false);
-        },
-        (err) => {
-          setLoading(false);
-          setError(err.message);
-        }
-      );
+    const sub = onSnapshot(
+      query(collectionGroup(db, colls), orderBy("date")),
+      (qs) => {
+        setCollection(qs.docs.map((each) => ({ ...each.data(), id: each.id })));
+
+        setError(null);
+        setLoading(false);
+      },
+      (err) => {
+        setLoading(false);
+        setError(err.message);
+      }
+    );
+    return () => {
       sub();
     };
-    getGroups();
   }, []);
 
   return [collection, loading, error];

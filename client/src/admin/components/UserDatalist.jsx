@@ -7,14 +7,14 @@ import { db } from "../../database/firebaseDb";
 import Toast from "../../components/Alert";
 //import { userRow } from "../utils/UserData";
 
-export default function UserDatalist({ users, setRefresh }) {
+export default function UserDatalist({ users, loading }) {
   const navigate = useNavigate();
 
   const handleDelete = async (id) => {
     //api call for delete
     try {
       await deleteDoc(doc(db, "users", id));
-      setRefresh(true);
+
       Toast.success.fire({
         icon: "success",
         text: "user successfully deleted",
@@ -117,9 +117,10 @@ export default function UserDatalist({ users, setRefresh }) {
       columns={column}
       rows={users}
       checkboxSelection
-      pageSize={8}
+      pageSize={10}
       disableSelectionOnClick
       autoHeight
+      loading={loading}
       getRowId={(row) => row.uid}
       onRowClick={() => {}}
       className="bg-primary2 h-screen !text-white "
