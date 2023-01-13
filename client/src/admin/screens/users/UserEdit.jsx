@@ -430,7 +430,7 @@ export default function UserEdit() {
                               <select
                                 type="text"
                                 name="verified"
-                                id="disable"
+                                id="verified"
                                 value={formData?.verified}
                                 onChange={handleChange}
                                 className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none bg-transparent text-white rounded  border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 w-full"

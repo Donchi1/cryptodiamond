@@ -26,7 +26,9 @@ function Verify() {
     try {
       const docRef = doc(db, "users", auth.currentUser.uid);
       const dbCode = await getDoc(docRef);
+      console.log(dbCode);
       if (dbCode.data().verificationCode !== verificationCode) {
+        setUserData({ ...userData, loading: false, verificationCode: "" });
         return Toast.error.fire({
           text: "Wrong Verification Code. Please contact our support team for one.",
           icon: "error",
@@ -37,7 +39,7 @@ function Verify() {
       return Toast.success
         .fire({
           icon: "success",
-          text: "Account Successful registered and verified",
+          text: "Account successfully registered and verified",
         })
         .then(() => navigate("/user/dashboard"));
     } catch (error) {
@@ -79,7 +81,7 @@ function Verify() {
                   </button>
                 </div>
               </form>
-              <p className="text-center mt-6 text-white">
+              {/* <p className="text-center mt-6 text-white">
                 Don't have account?{" "}
                 <a
                   className="hover:text-[#f75616] transition-all ease-linear duration-500"
@@ -87,7 +89,7 @@ function Verify() {
                 >
                   Sign Up
                 </a>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

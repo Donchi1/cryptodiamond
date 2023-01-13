@@ -38,11 +38,6 @@ import AdminUsers from "./admin/screens/users/AdminUsers";
 import AdminContacts from "./admin/screens/main/Contacts";
 import Subcribers from "./admin/screens/Subcribers";
 import AdminNotifications from "./admin/screens/main/AdminNotifications";
-import { useDispatch, useSelector } from "react-redux";
-import useGetDocument from "./components/hooks/UseDocument";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { getAdminUser } from "./state/adminAuthSlice";
-import { db } from "./database/firebaseDb";
 import Verify from "./screens/auth/verify";
 import ProtectedRouteV from "./ProtectRouteV";
 

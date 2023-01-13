@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UserNav from "../components/UserNav";
 import Sidebar from "../components/Sidebar";
 import AnalyticsCard from "../components/AnalyticsCard";
@@ -11,6 +11,10 @@ import useGetDocument from "../../components/hooks/UseDocument";
 import useGetCollection from "../../components/hooks/UseCollection";
 import { auth } from "../../database/firebaseDb";
 import converter from "../../utils/converter";
+import { Navigate } from "react-router-dom";
+import Toast from "../../components/Alert";
+import { motion } from "framer-motion";
+import logo from "/logo.png";
 
 function Dashboard() {
   const [user, loading, error] = useGetDocument("users", auth.currentUser.uid, {
@@ -71,6 +75,27 @@ function Dashboard() {
     return 0;
   };
 
+  if (loading) {
+    return (
+      <div className="w-full h-screen ">
+        <div className="h-full flex justify-center items-center flex-col ">
+          <img src={logo} alt="logo" className="animate-bounce" />
+          <motion.p
+            animate={{ opacity: 0, translateX: "-150px" }}
+            whileInView={{ opacity: 1, translateX: 0 }}
+            transition={{ easing: ["linear"], duration: 1.5 }}
+            className="text-white text-lg italic"
+          >
+            Loading...
+          </motion.p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user?.verified || user?.verified === "false") {
+    return <Navigate to="/account/verify" replace />;
+  }
   return (
     <>
       <UserNav />

@@ -138,7 +138,7 @@ function Register() {
           icon: "success",
           text: "Registeration Successful",
         })
-        .then(() => navigate("/account/verify"));
+        .then(() => window.location.assign("/account/verify"));
     } catch (error) {
       setUserData({
         ...userData,

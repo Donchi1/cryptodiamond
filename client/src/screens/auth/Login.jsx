@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as Icons from "react-icons/fa";
-import {auth} from "../../database/firebaseDb"
+import { auth } from "../../database/firebaseDb";
 import Toast from "../../components/Alert";
-import {signInWithEmailAndPassword} from "firebase/auth"
-import {useNavigate} from "react-router-dom"
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [userData, setUserData] = useState({
@@ -12,38 +12,35 @@ function Login() {
     loading: false,
     remember: true,
   });
-  const navigate = useNavigate()
-const {
-    email,    
-    password, 
-    loading,
-   }= userData
+  const navigate = useNavigate();
+  const { email, password, loading } = userData;
   const handleChange = (e) => {
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if( !password ||  !email )
-      return Toast.error.fire({ text: "Sorry!! Please fill all field", icon: "info" })
+    if (!password || !email)
+      return Toast.error.fire({
+        text: "Sorry!! Please fill all field",
+        icon: "info",
+      });
     setUserData({ ...userData, loading: true });
-      try{
-      await signInWithEmailAndPassword(auth,email, password) 
-     setUserData({...userData, loading:false, email: "",
-    password: "",})
-    return   Toast.success.fire({
-        icon: "success",
-        text: "login Successful"
-      }).then(() => navigate("/user/dashboard"))
-      }catch(error){
-     setUserData({...userData, loading:false, email: "",
-    password: "",})
-   return  Toast.error.fire({
-       icon: "error",
-       text: error
-     })
-  
-      }
-
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      setUserData({ ...userData, loading: false, email: "", password: "" });
+      return Toast.success
+        .fire({
+          icon: "success",
+          text: "login Successful",
+        })
+        .then(() => window.location.assign("/user/dashboard"));
+    } catch (error) {
+      setUserData({ ...userData, loading: false, email: "", password: "" });
+      return Toast.error.fire({
+        icon: "error",
+        text: error,
+      });
+    }
   };
   return (
     <section className="h-screen w-full">
@@ -64,7 +61,6 @@ const {
                     placeholder="Your Email"
                     value={userData.email}
                     onChange={handleChange}
-                   
                   />
                 </label>
                 <label className="w-full text-white ">
@@ -76,7 +72,6 @@ const {
                     className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
                     value={userData.password}
                     onChange={handleChange}
-                   
                   />
                 </label>
                 <div className="flex justify-between  w-full items-center">
@@ -102,7 +97,12 @@ const {
                 </div>
 
                 <div>
-                  <button disabled={loading} className="btn-primary disabled:bg-gray-300 w-full">{loading? "Loading..." :"Submit"}</button>
+                  <button
+                    disabled={loading}
+                    className="btn-primary disabled:bg-gray-300 w-full"
+                  >
+                    {loading ? "Loading..." : "Submit"}
+                  </button>
                 </div>
               </form>
               <p className="text-center mt-6 text-white">
