@@ -14,8 +14,6 @@ function useCollection(col) {
   const [myCollection, setMyCollection] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(error);
-  console.log(myCollection);
 
   useEffect(() => {
     const unsubscribe = onSnapshot(

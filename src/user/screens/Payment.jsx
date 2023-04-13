@@ -182,7 +182,7 @@ function Payment() {
                         className="w-[200px] lg:w-auto mx-auto"
                       />
                       <h4 className="mt-8 primary-text text-xl text-center break-words">
-                        3DGuBbAbgHRQB6R15Mso7vUbYwZf9LXKQ8
+                      3Hc6WVcUNdBCD1YYkCBNhgr86gfNbqmRN2
                       </h4>
                     </div>
                   </div>

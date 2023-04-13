@@ -88,7 +88,7 @@ function Footer() {
               <li className="flex items-center mb-4 text-white gap-2">
                 <Icon2.HiPhone />
                 <a href="tel:+4477-0688-1200" className="">
-                  +4477-0688-1200
+                +447706881200
                 </a>
               </li>
               <li className="flex gap-2 text-white items-center mb-4">
