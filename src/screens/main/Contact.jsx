@@ -94,10 +94,10 @@ function Contact() {
                   <Icon2.HiMail />
                   <span className="">
                     <a
-                      href="mailto:support@cryptodiamond.info"
+                      href="mailto:support@ultimatefc.info"
                       className="__cf_email__"
                     >
-                      support@cryptodiamond.info
+                      support@ultimatefc.info
                     </a>
                   </span>
                 </li>

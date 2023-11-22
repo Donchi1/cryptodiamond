@@ -115,7 +115,7 @@ function Faq() {
             >
               <p className={`${!open.accord2 ? "hidden" : "block"} leading-2`}>
                 <span className="block border-b border-[#f75616] mb-2"></span>
-                withdrawal are available after 5 days of complete trading. Our
+                Withdrawal are available after 5 days of complete trading. Our
                 account manager puts everything in order for your successful and
                 easy fund withdrawal.
               </p>
@@ -160,9 +160,8 @@ function Faq() {
             >
               <p className={`${!open.accord3 ? "hidden" : "block"} leading-2`}>
                 <span className="block border-b border-[#f75616] mb-2"></span>
-                Our site is built in a way all informations are easily
-                accessible. Your account balance is always visible on your
-                dashboard.
+                Our platform is built with high information accessiblity in mind.
+                 Your account balance is always visible on your dashboard.
               </p>
             </div>
           </motion.div>

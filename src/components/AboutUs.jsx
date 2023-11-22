@@ -9,7 +9,7 @@ function About() {
         <div className="text-center flex flex-col gap-6 mb-20 ">
           <h6 className="primary-text font-ubuntu text-2xl">ABOUT US</h6>
           <h3 className="text-white font-[500] capitalize text-4xl">
-            Welcome to Global Stable Growth
+            Welcome to UltimateFC
           </h3>
         </div>
 
@@ -45,7 +45,7 @@ function About() {
             className="items-end flex-[1] text-white lg:mt-0 mt-6"
           >
             <h6 className=" text-xl font-[500] font-ubuntu mb-8 first-letter:text-[#f75616] first-letter:font-bold first-letter:text-2xl">
-              Crypto Diamond is an investment company, Working on
+              UltimateFC is an investment company, Working on
               cryptocurrency, expanding wealth, reaching out to people to for a
               great revenue.{" "}
             </h6>
