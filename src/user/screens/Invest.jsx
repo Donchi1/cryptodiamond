@@ -41,7 +41,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $100 -$1500
+                        €100 -€1500
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5 days</h6>
@@ -88,7 +88,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $500 -$5999
+                        €500 -€5999
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5 days</h6>
@@ -135,7 +135,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $1000 -$13000
+                        €1000 -€13000
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5day</h6>
@@ -190,7 +190,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $1200 -$17000
+                        €1200 -€17000
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5 days</h6>
@@ -238,7 +238,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $1500 -$20999
+                        €1500 -€20999
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5 days</h6>
@@ -286,7 +286,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        $2000 -$25000
+                        €2000 -€25000
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5day</h6>
