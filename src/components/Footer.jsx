@@ -95,10 +95,10 @@ function Footer() {
                 <Icon2.HiMail />
                 <span className="">
                   <a
-                    href="mailto:support@cryptodiamond.info"
+                    href="mailto:support@ultimatefc.info"
                     className="__cf_email__"
                   >
-                    support@cryptodiamond.info
+                    support@ultimatefc.info
                   </a>
                 </span>
               </li>
@@ -119,7 +119,7 @@ function Footer() {
             
           >
             Copyright &copy; {new Date().getFullYear()}{" "}
-            <strong>Crypto Diamond</strong> All Rights Reserved
+            <strong>UltimateFc</strong> All Rights Reserved
           </p>
         </div>
       </div>
