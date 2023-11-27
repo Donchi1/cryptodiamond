@@ -15,7 +15,7 @@ const Next = ({ className, onClick, style, dont }) => {
     >
       <button
         onClick={onClick}
-        className="border-[#f75616] border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-[#f75616] transition-color ease-linear duration-500"
+        className="border-gold border px-3 py-2 rounded-sm hover:bg-transparent  hover:border-gold/70 transition-color ease-linear duration-500"
       >
         <Icons.FaChevronRight />
       </button>
@@ -30,7 +30,7 @@ const Prev = ({ className, onClick, style, dont }) => (
   >
     <button
       onClick={onClick}
-      className="border-[#f75616]  border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-[#f75616] transition-color ease-linear duration-500"
+      className="border-gold  border px-3 py-2 rounded-sm hover:bg-transparent  hover:border-gold/70 transition-color ease-linear duration-500"
     >
       <Icons.FaChevronLeft />
     </button>

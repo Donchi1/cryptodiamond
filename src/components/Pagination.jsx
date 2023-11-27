@@ -10,7 +10,7 @@ function Pagaination() {
       <div className="w-[90%] lg:w-[80%] h-[70px] flex justify-center items-center mx-auto bg-primary2 rounded-sm">
         <h2 className="text-white font-[500] text-xl">
           {" "}
-          <a href="/" className="hover:text-[#f75616]">
+          <a href="/" className="hover:text-gold">
             {" "}
             Home{" "}
           </a>

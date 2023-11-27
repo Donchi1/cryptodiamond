@@ -40,9 +40,9 @@ export default function TransactionWidget({ transactions }) {
           </thead>
           <tbody className=" pt-4  dark:bg-gray-800 dark:text-white">
             {transactions?.map((each) => (
-              <tr className="text-gray-500">
+              <tr className="text-gray-500" key={each.uid}>
                 <td className=" flex p-4  items-center gap-2">
-                  {each.uid.slice(1, 20)}
+                  {each.uid.slice(1,5)}
                 </td>
                 <td className="p-4  whitespace-nowrap">{each.type}</td>
                 <td className="  pl-2">
@@ -71,7 +71,7 @@ export default function TransactionWidget({ transactions }) {
 
             {transactions?.length === 0 && (
               <tr className="primary-text text-center mt-8 text-lg capitalize">
-                <td>No transaction yet</td>
+                <td rowSpan={4}>No transaction yet</td>
               </tr>
             )}
           </tbody>

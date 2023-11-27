@@ -135,7 +135,7 @@ function Invest() {
                       </h4>
 
                       <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-                        €1000 -€13000
+                        €1000 - €13000
                       </h4>
                       <div className="mt-2 text-white text-lg font-ubuntu">
                         <h6>15% after 5day</h6>

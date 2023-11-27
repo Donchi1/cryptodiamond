@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <>
       <Topbar />
-      <section className="w-full h-[12vh] bg-primary2 relative">
+      <section className="w-full h-[12vh] bg-primaryb relative">
         <nav className="w-[90%] lg:w-[80%] mx-auto">
           <div className="flex justify-between items-center pt-2">
             <a href="/">
@@ -19,29 +19,29 @@ function Navbar() {
               className="primary-text text-3xl inline-block lg:hidden"
               onClick={() => setOpenBar((prev) => !prev)}
             >
-              <Icons.FaBars />
+              <Icons.FaBars className="text-white" />
             </button>
 
             <ul
               className={`
                 
-               lg:flex hidden text-center gap-6 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#f75616]`}
+               lg:flex hidden text-center gap-6 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#b38728]`}
             >
               <li>
                 <a href="/">Home</a>
               </li>
-              <li className=" border-l border-[#f75616] ">
+              <li className=" border-l border-[#b38728] ">
                 <a className="pl-2 " href="/about">
                   About Us
                 </a>
               </li>
-              <li className="border-l border-[#f75616]">
+              <li className="border-l border-[#b38728]">
                 <a className="pl-2" href="/pricing">
                   Pricing
                 </a>
               </li>
 
-              <li className="border-l border-[#f75616]">
+              <li className="border-l border-[#b38728]">
                 <a className="pl-2" href="/contact">
                   Contact
                 </a>
@@ -59,23 +59,23 @@ function Navbar() {
             <ul
               className={`${
                 !openBar && "-translate-x-full"
-              } flex lg:hidden w-[50%] z-20 text-center transition-all ease-linear duration-500 h-[76vh] absolute py-4 left-0 top-[4.8rem] bg-primary2 flex-col gap-4 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#f75616]`}
+              } flex lg:hidden w-[50%] z-20 text-center transition-all ease-linear duration-500 h-[76vh] absolute py-4 left-0 top-[4.5rem] bg-primary2 flex-col gap-4 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#b38728]`}
             >
-              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#f75616] rounded-lg ">
+              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#b38728] rounded-lg ">
                 <a href="/">Home</a>
               </li>
-              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#f75616] rounded-lg ">
+              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#b38728] rounded-lg ">
                 <a className="" href="/about">
                   About Us
                 </a>
               </li>
-              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#f75616] rounded-lg ">
+              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#b38728] rounded-lg ">
                 <a className="" href="/pricing">
                   Pricing
                 </a>
               </li>
 
-              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#f75616] rounded-lg ">
+              <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#b38728] rounded-lg ">
                 <a className="" href="/contact">
                   Contact
                 </a>

@@ -17,7 +17,7 @@ const Next = ({ className, onClick, style, dont }) => {
     >
       <button
         onClick={onClick}
-        className="border-[#f75616] border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-[#f75616] transition-color ease-linear duration-500"
+        className="border-gold border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-gold/70 transition-color ease-linear duration-500"
       >
         <Icons.FaChevronRight />
       </button>
@@ -28,7 +28,7 @@ const Prev = ({ className, onClick, style, dont }) => (
   <div className={`${dont && "hidden"} absolute -left-14 text-white text-lg `}>
     <button
       onClick={onClick}
-      className="border-[#f75616]  border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-[#f75616] transition-color ease-linear duration-500"
+      className="border-gold  border px-3 py-2 rounded-sm hover:bg-transparent hover:border hover:border-gold/70 transition-color ease-linear duration-500"
     >
       <Icons.FaChevronLeft />
     </button>
@@ -83,7 +83,7 @@ function Testimonial() {
               className=" bg-primary2 p-6 relative lg:mb-20 mb-8"
               key={index}
             >
-              <div className="absolute hidden lg:block -bottom-20 right-[50%] w-0 h-0 border-l-[50px] border-r-[50px] border-l-transparent border-r-transparent  border-t-[90px] border-[#202b5d]"></div>
+              <div className="absolute hidden lg:block -bottom-20 right-[50%] w-0 h-0 border-l-[50px] border-r-[50px] border-l-transparent border-r-transparent  border-t-[90px] border-[#222]"></div>
               <div className="flex gap-8">
                 <div className="rounded-full border-[4px] w-[100px] h-[100px] border-primary ">
                   <img src={avater} alt="..." className=" w-full" />
@@ -136,7 +136,7 @@ function Testimonial() {
               <div
                 className={`${
                   currentSlide + 1 === index &&
-                  "rounded-full w-[90px] text-center h-[40px] border-[1px] border-dashed border-red-500 border flex items-center justify-center"
+                  "rounded-full w-[90px] text-center h-[40px] border-[1px] border-dashed border-gold border flex items-center justify-center"
                 }`}
               >
                 <h6 className=" text-white font-bold font-xl">

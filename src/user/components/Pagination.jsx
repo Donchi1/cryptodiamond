@@ -16,7 +16,7 @@ const Pagination = ({ title }) => {
       >
         <Link
           to="/user/dashboard"
-          className="hover:text-[#f75616] transition-allease-linear"
+          className="hover:text-gold transition-allease-linear"
         >
           Home{" "}
         </Link>

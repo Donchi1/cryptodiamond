@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         Ubuntu: ['Ubuntu', 'Sans', 'Lato'],
       },
+      colors:{
+        "gold": "#b38728"
+      }
     },
   },
   extend: {},

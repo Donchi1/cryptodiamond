@@ -26,7 +26,7 @@ function Verify() {
     try {
       const docRef = doc(db, "users", auth.currentUser.uid);
       const dbCode = await getDoc(docRef);
-      console.log(dbCode);
+
       if (dbCode.data().verificationCode !== verificationCode) {
         setUserData({ ...userData, loading: false, verificationCode: "" });
         return Toast.error.fire({
@@ -65,7 +65,7 @@ function Verify() {
                   <input
                     type="number"
                     name="verificationCode"
-                    className="text-gray-100 mt-2 outline-none h-[50px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                    className="text-gray-100 mt-2 outline-none h-[50px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                     placeholder="Verification Code"
                     value={userData.email}
                     onChange={handleChange}

@@ -57,7 +57,7 @@ function Login() {
                   <input
                     type="email"
                     name="email"
-                    className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                    className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                     placeholder="Your Email"
                     value={userData.email}
                     onChange={handleChange}
@@ -69,27 +69,42 @@ function Login() {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                    className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                     value={userData.password}
                     onChange={handleChange}
                   />
                 </label>
                 <div className="flex justify-between  w-full items-center">
-                  <label className=" text-white gap-4 transition-all ease-linear duration-500 flex justify-center items-center cursor-pointer ">
+                  
+
+                  <label className="relative text-white gap-4 transition-all ease-linear duration-500 flex justify-center items-center cursor-pointer ">
                     <input
                       type="checkbox"
-                      className={`text-gray-100 ${
-                        !userData.remember && "check"
-                      } border-[#f75616]   h-[20px]  w-[20px]   outline-none  !bg-transparent  rounded-sm border `}
+                      className=" w-5 h-5 relative peer appearance-none transition-all ease-linear duration-500
+                       checked:bg-gold rounded-[0.300rem] checked:text-white  bg-[#111] checked:border-0 border border-gray-400"
                       name="remember"
                       value={userData.remember}
+                      checked={userData.remember}
                       onChange={handleChange}
                     />
                     Remember Me
+                  <svg
+                          className="absolute  w-5 h-5 left-0 pointer-events-none text-white hidden peer-checked:block"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
                   </label>
+                  
 
                   <a
-                    className="text-white hover:text-[#f75616] transition-all ease-linear duration-500"
+                    className="text-white hover:text-gold transition-all ease-linear duration-500"
                     href="/auth/forgot"
                   >
                     Forgot Password?
@@ -108,7 +123,7 @@ function Login() {
               <p className="text-center mt-6 text-white">
                 Don't have account?{" "}
                 <a
-                  className="hover:text-[#f75616] transition-all ease-linear duration-500"
+                  className="hover:text-gold transition-all ease-linear duration-500"
                   href="/auth/register"
                 >
                   Sign Up

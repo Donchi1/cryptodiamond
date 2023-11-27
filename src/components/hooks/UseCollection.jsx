@@ -19,6 +19,7 @@ function useCollection(col) {
     const unsubscribe = onSnapshot(
       collection(db, col),
       (qsnap) => {
+        
         setMyCollection(
           qsnap.docs.map((each) => ({ ...each.data(), id: each.id }))
         );

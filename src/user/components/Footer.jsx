@@ -6,7 +6,7 @@ function Footer() {
       <div className="text-white text-center">
         <p>
           @ {new Date().getFullYear()}{" "}
-          <strong className="primary-text uppercase">Crypto Diamond</strong> all
+          <strong className="primary-text uppercase">UltimateFc</strong> all
           right reserved
         </p>
       </div>

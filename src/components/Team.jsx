@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Team() {
   return (
-    <section className="w-full mt-28 pt-20 mb-20">
+    <section className="w-full mt-28 py-20 mb-20 bg-primaryb ">
       <div className="w-[90%] lg:w-[80%] mx-auto">
         <div className="flex flex-col justify-center items-center mb-20">
           <div className="text-center">
@@ -48,13 +48,13 @@ export default function Team() {
               <p className="text-lg text-white">Chief Operating Manager </p>
               <span className="flex gap-2 ">
                 <a
-                  href="mailto:support@cryptodiamond.info"
+                  href="mailto:support@ultimatefc.info"
                   className="font-[500] border-primary text-white p-2 rounded-xl "
                 >
                   <Icons.HiMail />
                 </a>
                 <a
-                  href="tel:+4477-0688-1200"
+                  href="tel:+447405711527"
                   className="font-[500] border-primary text-white p-2 rounded-xl "
                 >
                   <Icons.HiPhone />

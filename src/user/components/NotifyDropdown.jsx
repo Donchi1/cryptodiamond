@@ -34,7 +34,7 @@ function NotifyDropdown({ info }) {
           <div className="flex-[2]">
             <div className="flex justify-between items-center">
               <h4 className=" font-bold capitalize">{each.title}</h4>
-              <span className="primary-text hover:border rounded-full hover:border-[#f75616] text-xl cursor-pointer">
+              <span className="primary-text hover:border rounded-full hover:border-gold text-xl cursor-pointer">
                 <Icons.BsX />
               </span>
             </div>
@@ -52,7 +52,7 @@ function NotifyDropdown({ info }) {
         <div className="self-center relative">
           <Link
             to="/user/messages"
-            className="bg-[#f75616] text-white rotate-[180deg] absolute py-px px-2 rounded-lg  text-center"
+            className="bg-gold text-white rotate-[180deg] absolute py-px px-2 rounded-lg  text-center"
           >
             <Icons.BsTriangle />
           </Link>

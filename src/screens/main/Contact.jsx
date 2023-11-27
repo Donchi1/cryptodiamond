@@ -86,8 +86,8 @@ function Contact() {
               <ul className="text-lg">
                 <li className="flex items-center mb-4 text-white gap-2">
                   <Icon2.HiPhone />
-                  <a href="tel:+4475-9227-5869" className="">
-                  +447706881200
+                  <a href="tel:+447405711527" className="">
+                  +447405711527
                   </a>
                 </li>
                 <li className="flex gap-2 text-white items-center mb-4">

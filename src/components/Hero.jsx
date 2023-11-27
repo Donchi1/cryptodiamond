@@ -31,7 +31,7 @@ function Hero() {
             transition={{ easing: ["linear"], duration: 1.2 }}
           >
             Put your investing ideas and money into action with full range of
-            Earnings. Enjoy real benefit and reward in crypto diamond.{" "}
+            Earnings. Enjoy real benefit and reward in Ultimatefc.{" "}
           </motion.h6>
           <motion.a
             className="btn-secondary  mt-30 "

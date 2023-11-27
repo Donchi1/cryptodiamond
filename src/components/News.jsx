@@ -38,7 +38,7 @@ function News() {
   return (
     <section className="w-full h-[70vh]  mt-48 lg:mt-0  lg:pt-0">
       <div className="flex justify-center flex-col lg:flex-row items-center h-full">
-        <div className="flex pt-10 w-full  lg:pt-0 flex-1 h-full flex-col pb-10 lg:pb-0 items-center justify-center bg-primary2  lg:bg-[#f75616]">
+        <div className="flex pt-10 w-full  lg:pt-0 flex-1 h-full flex-col pb-10 lg:pb-0 items-center justify-center bg-primary2  lg:bg-gold">
           <motion.div
             animate={{ opacity: 0, translateX: "-100px" }}
             whileInView={{ opacity: 1, translateX: 0 }}

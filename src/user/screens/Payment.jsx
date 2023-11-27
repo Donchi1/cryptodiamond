@@ -85,7 +85,7 @@ function Payment() {
                       Payment Methods
                     </h1>
                     <h4 className="text-sm mt-4 capitalized text-center text-white">
-                      Invest in cryptoDiamond and never regret <br />
+                      Invest in Ultimatefc and never regret <br />
                       choose your investment method
                     </h4>
 
@@ -167,7 +167,7 @@ function Payment() {
                     </form>
                   </div>
                 </div>
-                <div className="flex-1 bg-gray-400 rounded-lg text-center ">
+                <div className="flex-1 bg-gray-600 rounded-lg text-center ">
                   <div className="lg:m-12 xl:m-16 lg:w-80 w-60 mx-auto  ">
                     <div>
                       <div>
@@ -182,7 +182,7 @@ function Payment() {
                         className="w-[200px] lg:w-auto mx-auto"
                       />
                       <h4 className="mt-8 primary-text text-xl text-center break-words">
-                      3Hc6WVcUNdBCD1YYkCBNhgr86gfNbqmRN2
+                      3BMQvdPgYPpeQEJXAJsqqcGmuWGLenomuG
                       </h4>
                     </div>
                   </div>

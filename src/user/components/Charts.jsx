@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Chart from "chart.js/auto";
 
 export default function Charts({ transactions }) {
+  
   const data = [
     { name: "Jan", amt: 400 },
     { name: "Feb", amt: 500 },
@@ -17,27 +18,13 @@ export default function Charts({ transactions }) {
     { name: "Dec", amt: 200 },
   ];
 
-  const dates = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+ 
 
   const transForDisplay = transactions?.map((each) => {
+    const vv = (each.date.seconds + each.date.seconds/100000000) * 1000
     return {
       amt: each.amount,
-      months: new Date(transactions[0].date.toDate())
-        .toDateString()
-        .slice(4, 7),
+      months: new Date(vv).toString().split(" ")[1]
     };
   });
 
@@ -45,11 +32,11 @@ export default function Charts({ transactions }) {
     var config = {
       type: "line",
       data: {
-        labels: dates.map((each) => each),
+        labels: data.map((each) => each.name),
         datasets: [
           {
             label: new Date().getFullYear(),
-            backgroundColor: "#f75616",
+            backgroundColor: "#b38728",
             borderColor: "gray",
             data:
               transactions.length > 0

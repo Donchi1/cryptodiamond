@@ -32,16 +32,13 @@ export default function Charts({ transactions, user }) {
     "Dec",
   ];
 
-  const transForDisplay = user
-    ? transactions
-    : transactions?.map((each) => {
-        return {
-          amt: each.amount,
-          months: new Date(transactions[0].date.toDate())
-            .toDateString()
-            .slice(4, 7),
-        };
-      });
+  const transForDisplay = transactions?.map((each) => {
+    const vv = (each.date.seconds + each.date.seconds/100000000) * 1000
+    return {
+      amt: each.amount,
+      months: new Date(vv).toString().split(" ")[1]
+    };
+  });
 
   useEffect(() => {
     var config = {
@@ -51,7 +48,7 @@ export default function Charts({ transactions, user }) {
         datasets: [
           {
             label: new Date().getFullYear(),
-            backgroundColor: "#f75616",
+            backgroundColor: "#b38728",
             borderColor: "gray",
             data:
               transactions.length > 0

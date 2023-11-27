@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 function Ways() {
   return (
     <section className="w-full pb-20 ">
-      <div className="w-full bg-[#f75616] way-bg1 h-[90vh]">
+      <div className="w-full bg-gold way-bg1 h-[90vh]">
         <div className="flex ">
           <div className="way-bg flex-1 h-[90vh] hidden lg:block"></div>
 
@@ -21,7 +21,7 @@ function Ways() {
               </h3>
               <div className="mt-8">
                 <div className="flex justify-center items-center gap-4 ">
-                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-[#070b28]  ring-[#070b28]">
+                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-primary2  ring-gold">
                     <span>1</span>
                   </div>
                   <div className="flex-1 ">
@@ -37,7 +37,7 @@ function Ways() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 ">
-                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-[#070b28]  ring-[#070b28]">
+                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-primary2  ring-gold">
                     <span>2</span>
                   </div>
                   <div className="flex-1 ">
@@ -51,7 +51,7 @@ function Ways() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 ">
-                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-[#070b28]  ring-[#070b28]">
+                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-primary2  ring-gold">
                     <span>3</span>
                   </div>
                   <div className="flex-1 ">
@@ -67,7 +67,7 @@ function Ways() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center gap-4 ">
-                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-[#070b28]  ring-[#070b28]">
+                  <div className="flex justify-center font-bold text-white items-center w-[50px] h-[50px] rounded-full ring-2 bg-primary2  ring-gold">
                     <span>4</span>
                   </div>
                   <div className="flex-1 ">

@@ -53,7 +53,7 @@ function Forgot() {
                     <input
                       type="email"
                       name="email"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       placeholder="Your Email"
                       value={userData.email}
                       onChange={handleChange}

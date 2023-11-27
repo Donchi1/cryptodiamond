@@ -15,7 +15,7 @@ export default function AnalyticsCard({ title, success, arrow, icon, info }) {
           {icon === "s" && <Icons.BsGraphDown />}
           {icon === "u" && <Icons.BsCurrencyExchange />}
           {icon === "t" && <Icons.BsCurrencyDollar />}
-          <p className="lg:text-4xl text-3xl font-bold text-white">{info}</p>
+          <p className="lg:text-4xl text-xl font-bold text-white">{info}</p>
         </div>
         <div
           className={`${checkArrow(

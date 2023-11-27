@@ -117,7 +117,7 @@ function Register() {
       const notes = {
         status: "success",
         title: "Welcome",
-        text: "Welcome to Crypto Diamond. We are happy to have you on board. Trade with ease.",
+        text: "Welcome to Ultimatefc. We are happy to have you on board. Trade with ease.",
       };
       createNotificationData(notes);
       setUserData({
@@ -177,7 +177,7 @@ function Register() {
                       type="text"
                       name="fname"
                       placeholder="FirstName"
-                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       value={userData.fname}
                       onChange={handleChange}
                     />
@@ -188,7 +188,7 @@ function Register() {
                       type="text"
                       name="lname"
                       placeholder="lastName"
-                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       value={userData.lname}
                       onChange={handleChange}
                     />
@@ -200,7 +200,7 @@ function Register() {
                     <input
                       type="email"
                       name="email"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       placeholder="Your Email"
                       value={userData.email}
                       onChange={handleChange}
@@ -211,7 +211,7 @@ function Register() {
                     <input
                       type="password"
                       name="password"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       placeholder="Password"
                       value={userData.password}
                       onChange={handleChange}
@@ -223,7 +223,7 @@ function Register() {
                     Number
                     <input
                       type="tel"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       name="phone"
                       placeholder="Phone "
                       value={userData.phone}
@@ -234,7 +234,7 @@ function Register() {
                     BirthDate
                     <input
                       type="date"
-                      className="text-gray-100 appearance-none mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 appearance-none mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       name="bDate"
                       placeholder="Subject"
                       value={userData.bDate}
@@ -251,7 +251,7 @@ function Register() {
                     State
                     <input
                       type="text"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       name="state"
                       placeholder="State"
                       value={userData.state}
@@ -267,7 +267,7 @@ function Register() {
                     </span>
                     <input
                       type="file"
-                      className="text-gray-100 hidden mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 hidden mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all duration-500 ease-linear"
                       name="photo"
                       onChange={handleChange}
                     />
@@ -276,7 +276,7 @@ function Register() {
                     Already have account?
                     <a
                       href="/auth/login"
-                      className="cursor-pointer hover:text-[#f75616] transition-all ease-linear duration-500"
+                      className="cursor-pointer hover:text-gold transition-all ease-linear duration-500"
                     >
                       Login
                     </a>

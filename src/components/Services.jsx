@@ -29,7 +29,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={legal} alt="..." />
@@ -51,7 +51,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={referal} alt="..." />
@@ -73,7 +73,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={secured} alt="..." />
@@ -94,7 +94,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={verified} alt="..." />
@@ -115,7 +115,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={instant} alt="..." />
@@ -137,7 +137,7 @@ function Services() {
             whileInView={{ opacity: 1, translateX: 0 }}
             transition={{ easing: ["linear"], duration: 1.2 }}
             viewport={{ once: true }}
-            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:border hover:border-[#f75616] transition-all ease-linear duration-500"
+            className=" bg-primary2 rounded-lg p-10 text-white flex gap-4 hover:ring-1 hover:ring-[#b38728] transition-all ease-linear duration-500"
           >
             <div className="w-[80px] h-[80px]  rounded-full border-primary flex justify-center items-center ">
               <img src={support} alt="..." />

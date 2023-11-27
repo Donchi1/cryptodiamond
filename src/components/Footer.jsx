@@ -53,7 +53,7 @@ function Footer() {
             <h5 className="text-xl pb-6 font-[500] font-ubuntu text-white">
               Useful Links
             </h5>
-            <ul className=" [&_a]:transition-all [&_a]:ease-linear [&_a]:duration-500 text-white [&_a]:items-center [&_a]:inline-flex [&_a]:gap-2 hover:[&_a]:text-[#f75616] [&_a_svg]:text-xs flex flex-col gap-4">
+            <ul className=" [&_a]:transition-all [&_a]:ease-linear [&_a]:duration-500 text-white [&_a]:items-center [&_a]:inline-flex [&_a]:gap-2 hover:[&_a]:text-gold [&_a_svg]:text-xs flex flex-col gap-4">
               <div className="grid lg:grid-cols-2 grid-cols-1 gap-y-5">
                 <li>
                   <a href="/">
@@ -104,7 +104,7 @@ function Footer() {
               </li>
               <li className="flex gap-2 text-white items-center">
                 <Icon2.HiLocationMarker />
-                <span className="">
+                <span className="flex flex-1">
                   Kingsway House 9, Bank st, Aberdeen, Scothland United Kingdom, AB11 7QST
                 </span>
               </li>

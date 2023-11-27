@@ -63,7 +63,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsHouse size={22} className="primary-text" />
                     Home
@@ -72,7 +72,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/profile"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsPerson size={22} className="primary-text" />
                     Profile
@@ -81,7 +81,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/analytics"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsFileBarGraph size={22} className="primary-text" />
                     Analytics
@@ -97,7 +97,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/contacts"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsGraphUp size={22} className="primary-text" />
                     Contacts
@@ -106,7 +106,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/transactions"
-                    className="dark:hover:text-black w-full transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black w-full transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsFilterRight size={22} className="primary-text" />
                     Transactions
@@ -115,7 +115,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/users"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsFolder2 size={22} className="primary-text" />
                     Users
@@ -124,7 +124,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/subcribers"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsSortDownAlt size={22} className="primary-text" />
                     Suscribers
@@ -140,7 +140,7 @@ export default function Sidebar() {
                 <li>
                   <Link
                     to="/adm/messages"
-                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                   >
                     <Icons.BsBell size={22} className="primary-text" />
                     Messages
@@ -179,7 +179,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsHouse size={22} className="primary-text" />
                   Home
@@ -188,7 +188,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/profile"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsPerson size={22} className="primary-text" />
                   Profile
@@ -197,7 +197,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/analytics"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsFileBarGraph size={22} className="primary-text" />
                   Analytics
@@ -213,7 +213,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/contacts"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsGraphUp size={22} className="primary-text" />
                   Contacts
@@ -222,7 +222,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/transactions"
-                  className="dark:hover:text-black w-full transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black w-full transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsFilterRight size={22} className="primary-text" />
                   Transactions
@@ -231,7 +231,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/users"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsFolder2 size={22} className="primary-text" />
                   Users
@@ -240,7 +240,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/subcribers"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsSortDownAlt size={22} className="primary-text" />
                   Suscribers
@@ -256,7 +256,7 @@ export default function Sidebar() {
               <li>
                 <Link
                   to="/adm/messages"
-                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-blue-100 flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  hover:bg-blue-100 "
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
                 >
                   <Icons.BsBell size={22} className="primary-text" />
                   Messages

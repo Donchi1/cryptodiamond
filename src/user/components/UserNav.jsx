@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as Icons from "react-icons/bs";
 import * as Icons1 from "react-icons/im";
 import avater from "/avatar.png";
@@ -9,7 +9,7 @@ import { handleSidebar } from "../../state/mainSlice";
 import { auth, db } from "../../database/firebaseDb";
 import NotifyDropdown from "./NotifyDropdown";
 import { motion } from "framer-motion";
-import useGetCollection from "../../components/hooks/UseCollection";
+import useCollection from "../../components/hooks/UseCollection";
 import useGetDocument from "../../components/hooks/UseDocument";
 import {
   query,
@@ -18,6 +18,7 @@ import {
   doc,
   where,
   updateDoc,
+  
 } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 
@@ -36,9 +37,9 @@ const UserNav = () => {
       snap: true,
     }
   );
-  const [notifications, loadings, error] = useGetCollection(
-    `notifications/${auth.currentUser.uid}/notificationDatas`
-  );
+  const [notifications, loadings, error] = useCollection(`notifications/GsbHV5fHOaXZ4qoHXXGGILL0WK53/notificationDatas`);
+  
+  console.log(notifications)
 
   const url = pathname.split("/")[2];
 

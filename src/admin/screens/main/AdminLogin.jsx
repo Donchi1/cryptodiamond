@@ -72,7 +72,7 @@ const AdminLogin = function () {
       <div className=" h-screen  px-8 py-8  flex justify-center items-center ">
         <div className="flex px-8 pb-8 shadow-lg rounded-lg bg-primary2 flex-col items-center lg:w-2/4 w-full mx-auto space-y-4 ">
           <div className="text-xl ml-4 mt-4 text-center uppercase font-bold  lg:ml-0 pt-4 text-white">
-            <span>Welcome To Crypto Diamond Admin </span>
+            <span>Welcome To Ultimatefc Admin </span>
           </div>
           <p className="text-center primary-text">Login your account</p>
           <div className="w-full ">

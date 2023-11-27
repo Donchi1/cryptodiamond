@@ -7,7 +7,7 @@ function Footer() {
         <p>
           @ {new Date().getFullYear()}{" "}
           <strong className="primary-text uppercase">
-            Crypto Diamond Admin
+            Ultimatefc Admin
           </strong>{" "}
           all right reserved
         </p>

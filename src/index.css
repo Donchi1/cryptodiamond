@@ -4,29 +4,112 @@
 @import 'tailwindcss/utilities';
 
 .bg-primary1 {
-  @apply bg-[#0f143a];
+  @apply bg-[#111]
+  /* bg-[#0f143a]; */
+}
+.bg-primaryb {
+  @apply bg-[#0b0b0b]
+  /* bg-[#0f143a]; */
 }
 .bg-primary2 {
-  @apply bg-[#202b5d];
+  @apply bg-[#222]
+  /* bg-[#202b5d]; */
 }
 .bg-secondary {
   @apply bg-[#070b28];
 }
 
 .primary-text {
-  @apply text-[#f75616];
+  /* @apply text-[#f75616]; */
+  background: linear-gradient(
+    135deg,
+    #b38728,
+    #fcf6ba,
+    #bf953f,
+    #fbf5b7,
+    #aa771c
+  ) !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  
 }
 
 .border-primary {
-  @apply border-[#f75616] border;
+  /* border-[#f75616] */
+  @apply  border-none;
+  background: linear-gradient(
+    135deg,
+    #b38728,
+    #fcf6ba,
+    #bf953f,
+    #fbf5b7,
+    #aa771c
+  ) !important;
+}
+.bg_gold{
+  background: linear-gradient(
+    135deg,
+    #b38728,
+    #fcf6ba,
+    #bf953f,
+    #fbf5b7,
+    #aa771c
+  ) !important;
 }
 
 .btn-primary {
-  @apply bg-[#f75616] px-6 py-3 rounded-full uppercase text-white;
+  @apply px-6 py-3 rounded-full text-[#000] uppercase;
+   /* bg-[#f75616] */
+   background: linear-gradient(
+    135deg,
+    #b38728,
+    #fcf6ba,
+    #bf953f,
+    #fbf5b7,
+    #aa771c
+  ) !important;
 }
 .btn-secondary {
-  @apply bg-transparent hover:bg-[#f75616] transition-all ease-linear duration-500 border border-[#f75616] py-3 px-6 rounded-full uppercase;
+  @apply bg-transparent hover:bg-[#b38728] transition-all ease-linear duration-500 border border-[#b38728]  py-3 px-6 rounded-full uppercase;
 }
+
+.btn-primary:hover {
+  color: #000;
+  background: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) !important;
+  transition: all 1s linear;
+}
+.btn-secondary:hover{
+  color: #000;
+  background: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) !important;
+  transition: all 1s linear;
+}
+.sidebar-link:hover{
+  color: #000 !important;
+  background: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) !important;
+}
+
 
 .way-bg {
   background: url('/about1.jpg') no-repeat center;
@@ -35,6 +118,7 @@
 .check {
   background: url('/check1.png') no-repeat center;
   background-size: cover;
+  
 }
 
 .hero {

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function Plans() {
   return (
-    <section className="w-full py-28  bg-[#070b28]">
+    <section className="w-full py-28  bg-primaryb">
       <div className="w-[90%] lg:w-[80%] mx-auto">
         <div className="text-center flex flex-col  gap-6 mb-20 ">
           <h6 className="primary-text font-ubuntu text-2xl">INVEST OFFER</h6>
@@ -37,7 +37,7 @@ function Plans() {
             </h4>
 
             <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-              $200 - $3000
+              €200 - €3000
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
               <h6>10% after 5 days</h6>
@@ -55,7 +55,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 3000 USD +{" "}
+              Total 3000 EURO +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>
@@ -84,7 +84,7 @@ function Plans() {
             </h4>
 
             <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-              $500 -$5999
+              €500 -€5999
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
               <h6>10% after 5 days</h6>
@@ -102,7 +102,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 5999 USD +{" "}
+              Total 5999 EURO +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>
@@ -131,7 +131,7 @@ function Plans() {
             </h4>
 
             <h4 className="text-3xl primary-text font-ubuntu font-[500]">
-              $1000 -$13000
+              €1000 -€13000
             </h4>
             <div className="mt-2 text-white text-lg font-ubuntu">
               <h6>10% after 5day</h6>
@@ -149,7 +149,7 @@ function Plans() {
             </p>
 
             <p className="text-[500] text-lg text-white mt-2">
-              Total 13000 USD +{" "}
+              Total 13000 EURO +{" "}
               <span className="bg-green-500 text-white rounded-lg py-px px-2">
                 Capital
               </span>
