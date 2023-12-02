@@ -6,6 +6,7 @@ import Toast from "../../../components/Alert";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { getAdminUser } from "../../../state/adminAuthSlice";
+import {FaEye, FaEyeSlash} from "react-icons/fa6"
 
 const AdminLogin = function () {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const AdminLogin = function () {
   });
   const navigate = useNavigate();
   const [admin, setAdmin] = useState({});
+  const [showPass, setShowPass] = useState(false);
   const dispatch = useDispatch();
 
   const { email, password } = formData;
@@ -29,6 +31,8 @@ const AdminLogin = function () {
     };
     getAdmin();
   }, []);
+
+ 
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -51,14 +55,12 @@ const AdminLogin = function () {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setFormData({ ...formData, loading: false, email: "", password: "" });
-      localStorage.setItem("admin", JSON.stringify(admin[0]));
-      localStorage.setItem("pass", JSON.stringify(password));
       return Toast.success
         .fire({
           icon: "success",
           text: "login Successful",
         })
-        .then(() => navigate("/adm", { state: admin[0] }));
+        .then(() => navigate("/adm"));
     } catch (error) {
       setFormData({ ...formData, loading: false, email: "", password: "" });
       return Toast.error.fire({
@@ -84,20 +86,24 @@ const AdminLogin = function () {
               required
               value={formData.email}
               onChange={handleChange}
-              className="py-4 duration-500 rounded-full px-4 outline-none  focus:outline-none  bg-transparent border transition-all ease-linear border-gray-300 text-white  w-full"
+              className="py-4 duration-500 rounded-full px-4 outline-none  focus:outline-none  bg-transparent border transition-all ease-linear border-gray-300 hover:border-gold focus:border-gold text-white  w-full"
             />
           </div>
-          <div className="w-full ">
+          <div className="w-full relative ">
             <input
               placeholder="Password"
-              type="password"
+              type={showPass ? "text" :"password"}
               name="password"
               id="password"
               required
               value={formData.password}
               onChange={handleChange}
-              className="py-4 px-4 outline-none rounded-full focus:outline-none  duration-500 bg-transparent border transition-all ease-linear border-gray-300 text-white  w-full "
+              className="py-4 pl-4  pr-12 outline-none rounded-full focus:outline-none  duration-500 bg-transparent border transition-all ease-linear border-gray-300 hover:border-gold focus:border-gold text-white  w-full "
             />
+            <span className="absolute right-5 top-4">
+              {!showPass ? <FaEye onClick={()=> setShowPass(true)} className="text-gray-400 cursor-pointer" size={23} />:
+               <FaEyeSlash onClick={()=> setShowPass(false)} className="text-gray-400 cursor-pointer" size={23} />}
+            </span>
           </div>
 
           <button className=" mt-6 py-4 w-full text-lg uppercase btn-primary text-white focus:outline-none outline-none rounded">

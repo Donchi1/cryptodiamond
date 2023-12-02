@@ -68,7 +68,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 pb-2`}
             >
               <p className={`${!open.accord1 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 Deposite are available at any time. Be sure, that your funds are
                 not used in any ongoing trade before the withdrawal. The
                 available amount is shown in your dashboard on the main page of
@@ -114,7 +114,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 `}
             >
               <p className={`${!open.accord2 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 Withdrawal are available after 5 days of complete trading. Our
                 account manager puts everything in order for your successful and
                 easy fund withdrawal.
@@ -159,7 +159,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 pb-2`}
             >
               <p className={`${!open.accord3 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 Our platform is built with high information accessiblity in mind.
                  Your account balance is always visible on your dashboard.
               </p>
@@ -203,7 +203,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 pb-2`}
             >
               <p className={`${!open.accord4 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 Visit the password reset page, type in your email address and
                 click the `Reset` button a password reset email will be sent to
                 you.Be sure you put your valid and account registered email
@@ -248,7 +248,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 `}
             >
               <p className={`${!open.accord5 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 An automatic notification will be sent to you once we send the
                 funds and you can always check your transaction history or
                 account balance. Our payment system dictates how long it will
@@ -294,7 +294,7 @@ function Faq() {
               } pb-4 transition-all ease-linear duration-500 `}
             >
               <p className={`${!open.accord6 ? "hidden" : "block"} leading-2`}>
-                <span className="block border-b border-[#f75616] mb-2"></span>
+                <span className="block border-b border-gold mb-2"></span>
                 You can withdraw the full amount of your account balance minus
                 the funds that are used currently for supporting opened
                 positions.You can withdraw all your fund with ease provided you

@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from "react";
+import React, { useState } from "react";
 import avater from "/avatar.png";
 import * as Icons from "react-icons/bs";
 import Footer from "../components/Footer";
@@ -15,6 +15,7 @@ import useGetDocument from "../../components/hooks/UseDocument";
 import createNotificationData from "../../utils/createNotification";
 
 export default function Profile() {
+  const [file,setFile] = useState(null)
   const [formData, setFormData] = useState({});
   const [user, loading, err] = useGetDocument("users", auth.currentUser.uid, {
     snap: true,
@@ -27,7 +28,6 @@ export default function Profile() {
     email,
     phone,
     status,
-    transactions,
     gender,
     occupation,
     country,
@@ -44,12 +44,13 @@ export default function Profile() {
   const compressImg = (img) => {
     return new Compressor(img, {
       quality: 0.6,
-      success: (file) => setFormData({ ...formData, photo: file }),
+      success: (file) => setFile(file),
     });
   };
 
+  
   // useEffect(() => {
-  //   //api call for single user data
+    //   //api call for single user data
   //   const getUser = () => {
   //     const userForEdit = userRow.find((each) => each.id.toString() === "1");
   //     setFormData(userForEdit);
@@ -59,18 +60,17 @@ export default function Profile() {
   // }, []);
 
   const handleChange = (e) => {
+    if (e.target.files) return compressImg(e.target.files[0])
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
-    if (e.target.files) {
-      compressImg(e.target.files[0]);
-    }
   };
   const handleChangePassword = (e) => {
     setPasswordData({ ...passwordData, [e.target.name]: e.target.value });
   };
 
+  console.log(formData)
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
@@ -97,7 +97,7 @@ export default function Profile() {
     try {
       await updateEmail(auth.currentUser, formData.email);
 
-      await uploadBytes(docRef, formData.photo);
+      await uploadBytes(docRef, file);
       const url = await getDownloadURL(docRef);
 
       await updateDoc(doc(db, "users", auth.currentUser.uid), {
@@ -107,7 +107,6 @@ export default function Profile() {
         phone,
         status,
         photo: url,
-        transactions,
         gender,
         aboutMe,
         occupation,
@@ -172,7 +171,7 @@ export default function Profile() {
 
   return (
     <>
-      <Suspense fallback={Toast.modal()}>
+      
         <UserNav />
         <div className="flex">
           <Sidebar />
@@ -185,7 +184,7 @@ export default function Profile() {
                   <div className="flex flex-col gap-4 mt-4 flex-1  p-4 ">
                     <div className=" flex gap-4 items-center">
                       <img
-                        src={user?.photo || avater}
+                        src={ user?.photo || avater}
                         className=" rounded-full h-[45px] w-[45px] object-cover"
                       />
                       <div className="flex gap-1 font-bold flex-col ">
@@ -243,9 +242,9 @@ export default function Profile() {
                         <div className="flex justify-center lg:hidden ">
                           <label htmlFor="upload" className="cursor-pointer">
                             <img
-                              src={user?.photo}
+                              src={file ? URL.createObjectURL(file) : user?.photo}
                               alt="profile"
-                              className="w-[300px] h-[300px] rounded-lg"
+                              className="w-[300px] h-[300px]  rounded-lg"
                             />
                           </label>
                           <input
@@ -253,7 +252,7 @@ export default function Profile() {
                             id="upload"
                             name="img"
                             className="hidden"
-                            onChange={handleChange}
+                            onChange={(e) => compressImg(e.target.files[0]) }
                           />
                         </div>
                         <form onSubmit={handleSubmit}>
@@ -271,7 +270,7 @@ export default function Profile() {
                                 id="fname"
                                 value={formData?.firstname}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                             <div className="w-full ">
@@ -287,7 +286,7 @@ export default function Profile() {
                                 id="lname"
                                 value={formData?.lastname}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                           </div>
@@ -305,7 +304,7 @@ export default function Profile() {
                                 id="phone"
                                 value={formData?.phone}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                             <div className="w-full ">
@@ -319,9 +318,10 @@ export default function Profile() {
                                 type="email"
                                 name="email"
                                 id="email"
+                                readOnly
                                 value={formData?.email}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                           </div>
@@ -339,7 +339,7 @@ export default function Profile() {
                                 id="country"
                                 value={formData?.country}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                             <div className="w-full ">
@@ -355,7 +355,7 @@ export default function Profile() {
                                 id="ocupation"
                                 value={formData?.occupation}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                           </div>
@@ -373,7 +373,7 @@ export default function Profile() {
                                 id="bdate"
                                 value={formData?.birthdate}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                             <div className="w-full ">
@@ -389,7 +389,7 @@ export default function Profile() {
                                 id="state"
                                 value={formData?.state}
                                 onChange={handleChange}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                           </div>
@@ -406,14 +406,14 @@ export default function Profile() {
                               id="aboutMe"
                               value={formData?.aboutMe}
                               onChange={handleChange}
-                              className="text-gray-100 mt-2 outline-none  h-[75px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                              className="text-gray-100 mt-2 outline-none  h-[75px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                             ></textarea>
                           </div>
                           <label className="py-2 text-lg text-gray-500">
                             Gender
                           </label>
                           <div className="w-full flex items-center gap-2 ">
-                            <label className="dark:text-gray-300">Male</label>
+                            <label className="text-gray-100">Male</label>
                             <input
                               type="radio"
                               name="male"
@@ -426,9 +426,9 @@ export default function Profile() {
                                   gender: e.target.value,
                                 })
                               }
-                              className="py-3  duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none rounded bg-gray-100 border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 "
+                              className="appearance-none p-1  duration-500  outline-none  focus:outline-none rounded checked:bg-gold border-2 transition-all ease-linear border-gray-400 hover:border-gold focus:border-gold "
                             />
-                            <label className="dark:text-gray-300">Female</label>
+                            <label className="text-gray-100">Female</label>
                             <input
                               type="radio"
                               name="female"
@@ -441,9 +441,9 @@ export default function Profile() {
                                   gender: e.target.value,
                                 })
                               }
-                              className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none rounded bg-gray-100 border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 "
+                              className="appearance-none p-1  duration-500  outline-none  focus:outline-none rounded checked:bg-gold border-2 transition-all ease-linear border-gray-400 hover:border-gold focus:border-gold "
                             />
-                            <label className="dark:text-gray-300">Others</label>
+                            <label className="text-gray-100">Others</label>
                             <input
                               type="radio"
                               name="others"
@@ -456,7 +456,7 @@ export default function Profile() {
                                   gender: e.target.value,
                                 })
                               }
-                              className="py-3 duration-500 px-4 outline-none focus:border-blue-400 focus:outline-none rounded bg-gray-100 border-2 transition-all ease-linear border-gray-400 hover:border-blue-400 "
+                              className="appearance-none p-1  duration-500  outline-none  focus:outline-none rounded checked:bg-gold border-2 transition-all ease-linear border-gray-400 hover:border-gold focus:border-gold "
                             />
                           </div>
                           <div className="mt-4 w-[100%] lg:w-[35%] lg:hidden block ">
@@ -483,7 +483,7 @@ export default function Profile() {
                                 id="password"
                                 value={passwordData.password}
                                 onChange={handleChangePassword}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                             <div className="w-full ">
@@ -499,7 +499,7 @@ export default function Profile() {
                                 id="password1"
                                 value={passwordData.password1}
                                 onChange={handleChangePassword}
-                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                                className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold transition-all ease-linear duration-500"
                               />
                             </div>
                           </div>
@@ -513,7 +513,7 @@ export default function Profile() {
                       <div className="flex-1 hidden lg:flex mt-6 flex-col items-end gap-[45%] lg:gap-24">
                         <div className="flex items-center  gap-4">
                           <img
-                            src={user?.photo}
+                            src={file? URL.createObjectURL(file) : user?.photo}
                             alt="profile"
                             className="w-[100px] h-[100px] rounded-lg"
                           />
@@ -548,7 +548,7 @@ export default function Profile() {
             <Footer />
           </div>
         </div>
-      </Suspense>
+      
     </>
   );
 }

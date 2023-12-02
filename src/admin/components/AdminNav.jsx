@@ -24,8 +24,11 @@ import { getAllUsers } from "../../state/adminAuthSlice";
 //import { adminContext } from "../../New-Project/context/AdminContext";
 
 const AdminNav = () => {
-  const user = JSON.parse(localStorage.getItem("admin"));
+  const [user] = useGetDocument("users", auth.currentUser?.uid, {snap: true})
   const dispatch = useDispatch();
+ 
+
+
 
   //const { setOpenSidebar, dark, setDark } = useContext(adminContext);
   const [notifications, loading, error] = useGetCollection(
@@ -109,7 +112,7 @@ const AdminNav = () => {
             <Icons1.ImBell
               stroke="#93c5fd"
               strokeWidth={0.1}
-              className=" text-white lg:text-[30px] text-[20px] cursor-pointer "
+              className=" text-white lg:text-[25px] text-[20px] cursor-pointer "
               onClick={handleBellClick}
             />
             {filteredNotes()?.recent && (

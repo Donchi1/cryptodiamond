@@ -8,14 +8,14 @@ export default function AnalyticsCard({ title, success, arrow, icon, info }) {
     if (arr === "fail") return "text-red-500";
   };
   return (
-    <div className="rounded-lg bg-primary2 basis-[33%]   shadow-md px-6 py-4 mt-4">
+    <div className="rounded-lg bg-primary2 basis-[33%]   shadow-md px-6 py-2 mt-4">
       <div>
         <h1 className="uppercase text-lg primary-text py-4">{title}</h1>
         <div className="flex justify-between text-3xl gap-4 items-center text-gray-400">
           {icon === "s" && <Icons.BsGraphDown />}
           {icon === "u" && <Icons.BsCurrencyExchange />}
           {icon === "t" && <Icons.BsCurrencyDollar />}
-          <p className="lg:text-4xl text-xl font-bold text-white">{info}</p>
+          <p className=" text-xl font-bold text-white">{info}</p>
         </div>
         <div
           className={`${checkArrow(

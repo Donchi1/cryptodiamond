@@ -53,10 +53,10 @@ export default function Sidebar() {
   return (
     <>
       <aside className="flex-[1] hidden h-screen   lg:flex flex-col  ">
-        <div className="fixed top-14 w-[20%] bg-primary2 h-full">
+        <div className="fixed top-14 w-[20%] bg-primary2 h-[90%] overflow-y-scroll sidebar-scroll">
           <div className="p-5 text-gray-600 ">
             <div className="mb-3">
-              <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+              <h3 className="text-sm mb-2 font-bold uppercase text-white ">
                 Dashboard
               </h3>
               <ul className="flex flex-col gap-1  ">
@@ -90,7 +90,7 @@ export default function Sidebar() {
               </ul>
             </div>
             <div className="mb-3">
-              <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+              <h3 className="text-sm mb-2 font-bold uppercase text-white ">
                 Menu
               </h3>
               <ul className="flex flex-col gap-1  ">
@@ -133,7 +133,7 @@ export default function Sidebar() {
               </ul>
             </div>
             <div className="mb-3">
-              <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+              <h3 className="text-sm mb-2 font-bold uppercase text-white ">
                 Notifications
               </h3>
               <ul className="flex flex-col gap-1  ">
@@ -146,10 +146,19 @@ export default function Sidebar() {
                     Messages
                   </Link>
                 </li>
+                <li>
+                <Link
+                  to="/adm/messenger"
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
+                >
+                  <Icons.BsMessenger size={22} className="primary-text" />
+                  Chats
+                </Link>
+                </li>
               </ul>
             </div>
           </div>
-          <div className=" flex justify-end flex-col h-20 mx-4 ">
+          <div className=" flex justify-end flex-col h-6 mx-4 ">
             <ul className="flex flex-col gap-1  ">
               <li>
                 <button
@@ -170,9 +179,10 @@ export default function Sidebar() {
           openSidebar ? "-translate-x-full" : "translate-x-0"
         } transition-all z-40 ease-linear duration-500  sidebar w-2/4  h-screen bg-primary2 lg:hidden block fixed top-[4rem] `}
       >
-        <div className="p-5 text-gray-600">
+        <div className=" h-full ">
+        <div className="px-5 pb-5 pt-4 text-gray-600  ">
           <div className="mb-3">
-            <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+            <h3 className="text-sm mb-2 font-bold uppercase text-white ">
               Dashboard
             </h3>
             <ul className="flex flex-col gap-1  ">
@@ -206,7 +216,7 @@ export default function Sidebar() {
             </ul>
           </div>
           <div className="mb-3">
-            <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+            <h3 className="text-sm mb-2 font-bold uppercase text-white ">
               Menu
             </h3>
             <ul className="flex flex-col gap-1  ">
@@ -249,7 +259,7 @@ export default function Sidebar() {
             </ul>
           </div>
           <div className="mb-3">
-            <h3 className="text-lg mb-2 font-bold uppercase text-white ">
+            <h3 className="text-sm mb-2 font-bold uppercase text-white ">
               Notifications
             </h3>
             <ul className="flex flex-col gap-1  ">
@@ -262,10 +272,19 @@ export default function Sidebar() {
                   Messages
                 </Link>
               </li>
+              <li>
+              <Link
+                  to="/adm/messenger"
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
+                >
+                  <Icons.BsMessenger size={22} className="primary-text" />
+                  Chats
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-        <div className=" flex justify-end flex-col h-20 ">
+        <div className=" flex justify-end flex-col h-6 ">
           <ul className="flex flex-col gap-1  ">
             <li>
               <button
@@ -277,6 +296,7 @@ export default function Sidebar() {
               </button>
             </li>
           </ul>
+        </div>
         </div>
       </aside>
     </>

@@ -1,17 +1,26 @@
-import { collection, getDocs, query, where } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { auth, db } from "./database/firebaseDb";
-import { getAdminUser } from "./state/adminAuthSlice";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import useGetDocWithClause from "./components/hooks/UseGetDocWithClause";
+import Loader from "./components/Loader";
 
 function ProtectedRouteAdmin() {
-  const authUser = auth.currentUser;
+  const [admin, loading] = useGetDocWithClause({
+    colls: "users",
+    q: { path: "isAdmin", condition: "==", value: true },
+  });
+  const router = useNavigate();
 
-  const admin = JSON.parse(localStorage.getItem("admin"));
+  useEffect(() => {
+    if (!loading) {
+      if (!admin[0]?.isAdmin) {
+        router("/adm/login", { replace: true });
+      }
+    }
+  }, [loading, admin]);
 
-  if (authUser && admin?.isAdmin) return <Outlet />;
-  return <Navigate replace to="/adm/login" />;
+  if (loading) return <Loader />;
+
+  return <Outlet />;
 }
 
 export default ProtectedRouteAdmin;

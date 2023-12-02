@@ -59,7 +59,7 @@ function Navbar() {
             <ul
               className={`${
                 !openBar && "-translate-x-full"
-              } flex lg:hidden w-[50%] z-20 text-center transition-all ease-linear duration-500 h-[76vh] absolute py-4 left-0 top-[4.5rem] bg-primary2 flex-col gap-4 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#b38728]`}
+              } flex lg:hidden w-[50%] z-20 text-center transition-all ease-linear duration-500 h-[76vh] absolute py-4 left-0 top-[4.5rem] bg-primaryb flex-col gap-4 [&_li]:transition-all [&_li]:ease-linear [&_li]:duration-50 text-white text-xl hover:[&_li]:text-[#b38728]`}
             >
               <li className=" transition-all ease-linear duration-700 hover:border py-2 hover:border-[#b38728] rounded-lg ">
                 <a href="/">Home</a>

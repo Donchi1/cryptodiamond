@@ -148,3 +148,47 @@
     background-size: cover;
   }
 }
+
+/* .sidebar-scroll:hover{
+  overflow-y: scroll;
+  transition: all .5s linear;
+
+} */
+.sidebar-scroll::-webkit-scrollbar{
+  width: 8px;
+}
+.sidebar-scroll::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) !important;;
+  border-radius: 10px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+/* .scroll::-webkit-scrollbar{
+  width: auto;
+}
+.scroll::-webkit-scrollbar-thumb{
+  background: linear-gradient(
+    45deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  ) !important;;
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+} */

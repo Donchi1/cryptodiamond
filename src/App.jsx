@@ -40,8 +40,11 @@ import Subcribers from "./admin/screens/Subcribers";
 import AdminNotifications from "./admin/screens/main/AdminNotifications";
 import Verify from "./screens/auth/verify";
 import ProtectedRouteV from "./ProtectRouteV";
+import  AdminMessenger from "./admin/screens/main/Messenger";
+import Messenger  from "./user/screens/Messenger";
 
 function App() {
+  
   return (
     <Router>
       <Routes>
@@ -75,6 +78,7 @@ function App() {
 
         <Route path="/user" element={<ProtectedRoute />}>
           <Route path="messages" element={<Notifications />} />
+          <Route path="messenger" element={<Messenger />} />
 
           <Route path="history" element={<HistoryData />} />
 
@@ -91,6 +95,7 @@ function App() {
         <Route path="/adm/login" element={<AdminLogin />} />
         <Route path="/adm" element={<ProtectedRouteAdmin />}>
           <Route path="messages" element={<AdminNotifications />} />
+          <Route path="messenger" element={<AdminMessenger />} />
 
           <Route path="history" element={<HistoryData />} />
 

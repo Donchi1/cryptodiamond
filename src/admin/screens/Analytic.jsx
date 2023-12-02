@@ -33,6 +33,7 @@ const Analytics = () => {
     const bonuses = users?.reduce((acc, { bonus }) => acc + Number(bonus), 0);
     return { initialDeposits, totalBalances, bonuses, totalProfits };
   };
+ 
   return (
     <>
       <AdminNav />
@@ -41,7 +42,7 @@ const Analytics = () => {
         <div className="flex-[4] h-screen ">
           <section className="w-[90%]  mx-auto ">
             <Pagination title="Analytics" />
-            <Charts transactions={data} user />
+            <Charts transactions={transactions} user />
             <InfoWidget
               user={getUserData()}
               transactions={transactions}

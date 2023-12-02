@@ -11,7 +11,7 @@ import useCollectionGroup from "../../../components/hooks/UseCollectionGroup";
 import { auth, db } from "../../../database/firebaseDb";
 import Toast from "../../../components/Alert";
 import converter from "../../../utils/converter";
-import AdminNav from "../../components/AdminNav";
+import AdminNav from "../../components/AdminNav"
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, getDocs, query, where } from "firebase/firestore";
 

@@ -130,7 +130,7 @@ function Contact() {
                       type="text"
                       name="name"
                       placeholder="Your Name"
-                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none  h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold"
                       value={userData.name}
                       onChange={handleChange}
                     />
@@ -140,7 +140,7 @@ function Contact() {
                     <input
                       type="email"
                       name="email"
-                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                      className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold"
                       placeholder="Your Email"
                       value={userData.email}
                       onChange={handleChange}
@@ -151,7 +151,7 @@ function Contact() {
                   Subject
                   <input
                     type="text"
-                    className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                    className="text-gray-100 mt-2 outline-none h-[60px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold"
                     name="subject"
                     placeholder="Subject"
                     value={userData.subject}
@@ -164,7 +164,7 @@ function Contact() {
                     value={userData.message}
                     onChange={handleChange}
                     name="message"
-                    className="text-gray-100 mt-2 outline-none h-[80px] w-full bg-transparent pl-2 rounded-lg border border-gray-300"
+                    className="text-gray-100 mt-2 outline-none h-[80px] w-full bg-transparent pl-2 rounded-lg border border-gray-300 hover:border-gold focus:border-gold"
                   ></textarea>
                 </label>
                 <div>

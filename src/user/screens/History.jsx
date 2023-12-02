@@ -15,7 +15,7 @@ function History() {
     `transactions/${auth.currentUser.uid}/transactionDatas`
   );
   return (
-    <Suspense fallback={loading && Toast.modal()}>
+    <>
       <UserNav />
       <div className="flex">
         <Sidebar />
@@ -99,7 +99,7 @@ function History() {
         </div>
       </div>
       <Footer />
-    </Suspense>
+    </>
   );
 }
 

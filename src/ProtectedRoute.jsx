@@ -1,20 +1,25 @@
 import React from "react";
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { auth } from "./database/firebaseDb";
-import { useSelector } from "react-redux";
 import useGetDocument from "./components/hooks/UseDocument";
+import { useEffect } from "react";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute() {
   const authUser = auth.currentUser;
   const [user, loading, error] = useGetDocument("users", authUser?.uid, {
     snap: true,
   });
+ 
+  const router = useNavigate();
 
-  //const user = useSelector((state) => state.auth.userData);
+  useEffect(() => {
+    if (!loading) {
+      if (!user) {
+        router("/auth/login", { replace: true });
+      }
+    }
+  }, [loading, user]);
 
-  if (!authUser) return <Navigate replace to="/auth/login" />;
-  // if (authUser && !user?.verified)
-  //   return <Navigate replace to="/account/verify" />;
   return <Outlet />;
 }
 

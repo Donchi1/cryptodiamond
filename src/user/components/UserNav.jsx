@@ -37,9 +37,8 @@ const UserNav = () => {
       snap: true,
     }
   );
-  const [notifications, loadings, error] = useCollection(`notifications/GsbHV5fHOaXZ4qoHXXGGILL0WK53/notificationDatas`);
-  
-  console.log(notifications)
+  const [notifications, loadings, error] = useCollection(`notifications/${auth.currentUser?.uid}/notificationDatas`);
+
 
   const url = pathname.split("/")[2];
 
@@ -111,7 +110,7 @@ const UserNav = () => {
             <Icons1.ImBell
               stroke="#93c5fd"
               strokeWidth={0.1}
-              size={30}
+              size={25}
               className=" text-white  cursor-pointer "
               onClick={handleBellClick}
             />
@@ -124,7 +123,7 @@ const UserNav = () => {
                   duration: 1,
                   repeat: Infinity,
                 }}
-                className="absolute top-0 right-0   inline-block h-3 w-3 rounded-full bg-[#f75616]"
+                className="absolute top-0 right-0   inline-block h-3 w-3 rounded-full bg-gold"
               ></motion.span>
             )}
             {openDropdownM && url !== "messages" && (
@@ -145,18 +144,18 @@ const UserNav = () => {
             </span>
 
             {openDropdown && (
-              <div className="absolute rounded-lg w-[8rem] flex flex-col lg:right-0 right-1 gap-6 bg-primary2 dark:bg-gray-800 shadow-2xl top-[3.3rem] p-4">
+              <div className="absolute rounded-lg w-[8rem] flex flex-col lg:right-0 right-1 gap-4 bg-primary2 dark:bg-gray-800 shadow-2xl top-[3.3rem] p-4">
                 <>
                   <Link
                     onClick={() => setOpenDropdown((prev) => !prev)}
-                    className=" transition-all text-sm ease-linear duration-500 hover:bg-gray-  dark:text-white  border-primar p-1 text-center rounded-lg "
+                    className=" transition-all text-sm ease-linear duration-500 sidebar-link  dark:text-white  border-primar p-1 text-center rounded-lg "
                     to="/user/profile"
                   >
                     Profile
                   </Link>
                   <Link
                     onClick={handleLogout}
-                    className=" transition-all text-sm ease-linear duration-500 hover:bg-gray- dark:text-white   border-ray-300 p-1 text-center rounded-lg "
+                    className=" transition-all text-sm ease-linear duration-500 sidebar-link dark:text-white   border-ray-300 p-1 text-center rounded-lg "
                     to="/#"
                   >
                     Log-out

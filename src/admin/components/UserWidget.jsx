@@ -1,14 +1,25 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import * as Icons from "react-icons/bs";
 //import { userRow } from "../utils/UserData";
 import { useNavigate } from "react-router-dom";
 
 export default function UserWidget({ users }) {
-  const [recentUsers, setResentUsers] = useState([]);
+  const [recentUsers, setRecentUsers] = useState([]);
   const navigate = useNavigate();
 
-  const filteredUsers = users?.sort((a, b) => a.date - b.date).splice(0, 10);
-
+  useEffect(() => {
+    const convDateInfo = users.map(each =>{
+      const convDate = (each.date.seconds + each.date.nanoseconds / 100000000)* 1000
+        return {
+          ...each,
+          date: new Date(convDate)
+        } 
+    })
+      const filtered = convDateInfo.filter((each, index) => index < 10).sort((a, b) => b.date - a.date)
+      setRecentUsers(filtered)
+      
+  }, [users])
   return (
     <section className="widget2 shadow-lg mt-4 text-white flex-[2]   rounded-lg  dark:bg-gray-800 bg-primary2 h-full ">
       <div className="py-4">
@@ -18,7 +29,7 @@ export default function UserWidget({ users }) {
       <div className="dark:text-gray-500 pt-4 lg:overflow-x-hidden overflow-x-scroll">
         <table className="table">
           <tbody className="px-4 pb-4 ">
-            {filteredUsers?.map((each) => (
+            {recentUsers?.map((each) => (
               <tr key={each.uid}>
                 <td className="px-6 py-2">
                   <img

@@ -226,7 +226,7 @@ export default function Sidebar() {
             </div>
             <div className="mb-3">
               <h3 className="text-lg mb-2 font-bold uppercase text-white ">
-                Notifications
+                Informations
               </h3>
               <ul className="flex flex-col gap-1  ">
                 <li>
@@ -238,10 +238,19 @@ export default function Sidebar() {
                     Messages
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/user/messenger"
+                    className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
+                  >
+                    <Icons.BsMessenger size={22} className="primary-text" />
+                    Support Chat
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
-          <div className=" flex justify-end flex-col h-20 mx-4 ">
+          <div className=" flex justify-end flex-col h-9 mx-4 ">
             <ul className="flex flex-col gap-1  ">
               <li>
                 <button
@@ -259,10 +268,10 @@ export default function Sidebar() {
 
       <aside
         className={`${
-          openSidebar ? "-translate-x-full" : "translate-x-0"
-        } transition-all z-40 ease-linear duration-500  sidebar w-2/4  h-screen bg-primary2 lg:hidden block fixed top-[4rem] `}
+          openSidebar ? "-translate-x-full" : "-translate-x-2"
+        }  transition-all z-40 ease-linear duration-500 overflow-y-scroll  sidebar w-2/4  h-screen bg-primary2 lg:hidden block fixed top-[4rem] `}
       >
-        <div className="p-5 text-gray-600">
+        <div className="p-5 text-gray-600 ">
           <div className="mb-3">
             <h3 className="text-lg mb-2 font-bold uppercase text-white ">
               Dashboard
@@ -345,10 +354,19 @@ export default function Sidebar() {
                   Messages
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/user/messenger"
+                  className="dark:hover:text-black transition-all items-center gap-2 focus:bg-gold flex duration-500 ease-linear p-2 text-gray-500  cursor-pointer   rounded-lg  sidebar-link "
+                >
+                  <Icons.BsMessenger size={22} className="primary-text" />
+                  Support Chat
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
-        <div className=" flex justify-end flex-col h-20 ">
+        <div className=" flex justify-end flex-col h-6 ">
           <ul className="flex flex-col gap-1  ">
             <li>
               <button
