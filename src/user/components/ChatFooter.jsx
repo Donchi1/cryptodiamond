@@ -26,6 +26,7 @@ const [admin] = useGetDocWithClause({colls:"users",q:{path:"isAdmin", condition:
         isAdmin: false,
         text: message,
         date:serverTimestamp(),
+        read: false,
         senderPhoto:currentUser?.photo,
         img: ""
        })

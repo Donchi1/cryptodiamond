@@ -12,8 +12,9 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { auth, db } from "../../database/firebaseDb";
 import { useEffect } from "react";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query, setDoc } from "firebase/firestore";
 import ChatModal from "../components/ChatModal";
+import { useDocumentVisible } from "../../components/hooks/GetVisibility";
 
 function Messenger() {
   const scrollRef = useRef(null)
@@ -28,6 +29,7 @@ function Messenger() {
 
   const [openChatModal, setOpenChatModal] = useState(false);
   const [file, setFile] = useState(null)
+  const activeTab = useDocumentVisible()
 
 
   const currentUser =  useSelector((state) => state.auth.userData)
@@ -43,6 +45,42 @@ function Messenger() {
         );
         setLoading(false);
         scrollRef.current && scrollRef.current.scrollIntoView({behavior: "smooth"})
+        qsnap.docChanges().forEach(async (change) => {
+          
+          if(change.type === "added"){
+           const dataInfo =  change.doc.data()
+            
+             if(!dataInfo.isAdmin) return            
+             
+             
+             if(dataInfo.read) return
+          
+             
+             if(activeTab) return
+             
+ 
+             if(Notification.permission === "granted") {
+                new Notification("New message", {
+                  body: dataInfo.text|| "",
+                  icon: dataInfo.senderPhoto
+ 
+                }).addEventListener("click", () => {
+                  localStorage.setItem("storedUID", dataInfo.senderId)
+                  //localStorage.setItem("storedUID", "DVsFfCsQbNXuLArq2hwGrpQCZVL2")
+                  const link = window.location.href
+                  window.location.assign(link)
+                })
+ 
+               await setDoc(doc(db,`chats/${combinedId}/messages/${change.doc.id}`), {
+                 ...dataInfo,
+                 read: true
+               })
+             }
+          }
+          
+       
+         
+         } )
       },
       (err) => {
         setError(err.message);
@@ -75,6 +113,7 @@ function Messenger() {
                 </div>
               </div>
               <ChatFooter setFile={setFile} setOpenChatModal={setOpenChatModal}  scrollRef={scrollRef} />
+              
             </div>
           </section>
         </div>

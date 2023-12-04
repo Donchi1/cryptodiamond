@@ -22,10 +22,10 @@ function Topbar() {
 
               <a
                 className="inline-flex items-center gap-1"
-                href="tel:+447405711527"
+                href="tel:+447466587402"
               >
                 <Icons.HiPhone className="primary-text" />
-                <span> +447405711527</span>
+                <span>+447466587402</span>
               </a>
             </ul>
             <div className="flex items-center justify-center gap-6 text-white  bg-inherit">

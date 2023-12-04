@@ -4,18 +4,21 @@ import ChatFooter from "../../components/ChatFooter";
 import ChatHeader from "../../../admin/components/ChatHeader";
 
 import { db } from "../../../database/firebaseDb";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
+import { collection, doc, onSnapshot, orderBy, query, setDoc, updateDoc } from "firebase/firestore";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import useGetDocWithClause from "../../../components/hooks/UseGetDocWithClause";
 import ChatSidebar from "../../components/ChatSidebar";
 import { FaRegPaperPlane, FaX } from "react-icons/fa6";
 import ChatModal from "../../components/ChatModal";
+import { useLocation } from "react-router-dom";
+import { useDocumentVisible } from "../../../components/hooks/GetVisibility";
 
 
 function Messenger() {
   const scrollRef = useRef(null);
-  const [userId, setUserId] = useState("")
+  const [userId, setUserId] = useState(localStorage.getItem("storedUID"))
+ 
 
   const [admin] = useGetDocWithClause({
     colls: "users",
@@ -30,9 +33,16 @@ function Messenger() {
   const [openChatside, setOpenChatside] = useState(false);
   const [openChatModal, setOpenChatModal] = useState(false);
   const [file, setFile] = useState(null)
-
+  const activeTab = useDocumentVisible()
  
-  
+
+  useEffect(() => {
+    const requestPerm = async() => {
+      await Notification.requestPermission()
+    }
+    if(Notification.permission !== "granted") requestPerm()
+
+ }, [])
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -49,6 +59,41 @@ function Messenger() {
           scrollRef.current &&
             scrollRef.current.scrollIntoView({ behavior: "smooth" });
         }
+
+        qsnap.docChanges().forEach(async (change) => {
+          
+         if(change.type === "added"){
+          const dataInfo =  change.doc.data()
+           
+          if(dataInfo.isAdmin) return            
+
+            if(dataInfo.read) return
+
+            // if(activeTab) return
+
+            if(Notification.permission === "granted") {
+               new Notification("New message", {
+                 body: dataInfo.text|| "",
+                 icon: dataInfo.senderPhoto
+
+               }).addEventListener("click", () => {
+                 localStorage.setItem("storedUID", dataInfo.senderId)
+                 //localStorage.setItem("storedUID", "DVsFfCsQbNXuLArq2hwGrpQCZVL2")
+                 const link = window.location.href
+                 window.location.assign(link)
+               })
+
+              await setDoc(doc(db,`chats/${combinedId}/messages/${change.doc.id}`), {
+                ...dataInfo,
+                read: true
+              })
+            }
+         }
+         
+      
+        
+        } )
+       
       },
       (err) => {
         setError(err.message);
@@ -57,6 +102,8 @@ function Messenger() {
     );
     return unsubscribe;
   }, [combinedId]);
+
+ 
 
  
 
@@ -93,6 +140,7 @@ function Messenger() {
                     </div>
                   </div>
                   <ChatFooter setFile={setFile} setOpenChatModal={setOpenChatModal} userId={userId} scrollRef={scrollRef} />
+                  
                 </div>
               </div>
             </div>

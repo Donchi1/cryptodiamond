@@ -53,11 +53,11 @@ setFilteredChats(rr)
               {firstname} {lastname}
             </span>
             {lastMessage.length > 38 ? (
-              <p className="self-end text-[14px] text-left">
+              <p className=" text-[14px] text-left">
                 {lastMessage.slice(0, 35)}...
               </p>
             ) : (
-              <p className="self-end text-[14px] text-left">{lastMessage}</p>
+              <p className=" text-[14px] text-left">{lastMessage}</p>
             )}
           </div>
         </div>
