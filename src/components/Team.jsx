@@ -48,7 +48,7 @@ export default function Team() {
               <p className="text-lg text-white">Chief Operating Manager </p>
               <span className="flex gap-2 ">
                 <a
-                  href="mailto:support@ultimatefc.pro"
+                  href="mailto:support@ultimatefc.live"
                   className="font-[500] border-primary text-white p-2 rounded-xl "
                 >
                   <Icons.HiMail />

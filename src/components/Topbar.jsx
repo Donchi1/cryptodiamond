@@ -14,10 +14,10 @@ function Topbar() {
             <ul className="flex justify-center flex-col lg:flex-row items-start gap-4 text-white">
               <a
                 className="inline-flex items-center gap-1"
-                href="mailto:support@ultimatefc.pro"
+                href="mailto:support@ultimatefc.live"
               >
                 <Icons.HiMail className="primary-text" />
-                <span>support@ultimatefc.pro</span>
+                <span>support@ultimatefc.live</span>
               </a>
 
               <a

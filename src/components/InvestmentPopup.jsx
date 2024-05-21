@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { dataPop } from "../utils/testimonialData";
 
 function InvestmentPopup() {
-  const investItem = [];
+ 
   const [popIndex, setPopIndex] = useState(0);
   const [openPop, setOpenPop] = useState(false);
 
@@ -15,12 +15,11 @@ function InvestmentPopup() {
         setOpenPop(true);
         setTimeout(() => {
           setOpenPop(false);
-        }, 2000);
-      }, 4000);
+        }, 10000);
+      }, 50000);
     })();
   },[popIndex]);
 
-  console.log(popIndex)
 
   return (
     <section className="absolute z-50 w-[70%] lg:w-[30%] top-[80%] right-10">
