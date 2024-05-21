@@ -15,8 +15,8 @@ function InvestmentPopup() {
         setOpenPop(true);
         setTimeout(() => {
           setOpenPop(false);
-        }, 10000);
-      }, 50000);
+        }, 8000);
+      }, 25000);
     })();
   },[popIndex]);
 
