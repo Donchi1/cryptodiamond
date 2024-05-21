@@ -193,3 +193,130 @@ export const data = [
       'It was like a magic when i saw a credit alert from my bank from crypto Diamond. I was able to withdraw my money after 3 working days.🤩🤩🤩',
   },
 ]
+
+
+export const dataPop = [
+  {
+    amount: 2000,
+    country: 'USA',
+    type: 'invested', 
+  },
+  {
+    amount: 50000,
+    country: 'London',
+    type: 'received',
+   
+  },
+  {
+    amount: 400,
+    country: 'USA',
+    type: 'invested',
+  },
+
+  {
+    amount: 200,
+    country: 'Kenya',
+    type: 'invested',
+  },
+  {
+    amount: 3000,
+    country: 'Swiden',
+    type: 'received'
+  },
+  {
+    amount: 6000,
+    country: 'Malta',
+    type: 'received',
+  },
+  {
+    amount: 2800,
+    country: 'Portugal',
+    type: 'invested'
+  },
+  {
+    amount: 32000,
+    country: 'Singapore',
+   type: "received",
+  },
+  {
+    amount: 400,
+    country: 'Taiwan',
+    type: 'received',
+  },
+  {
+    amount: 2500,
+    country: 'Canada',
+    type: 'invested',
+  },
+  {
+    amount: 3000,
+    country: 'Austra',
+    type: 'invested'
+  },
+  {
+    amount: 10000,
+    country: 'Finland',
+    type: 'recieved',
+  },
+  {
+    amount: 8000,
+    country: 'India',
+    type: 'received',
+  },
+  {
+    amount: 2000,
+    country: 'Pakistan',
+    type: 'received',
+  },
+  {
+    amount: 3000,
+    country: 'Russia',
+    type: 'invested',
+  },
+  {
+    amount: 32000,
+    country: 'Turkey',
+    type: 'received',
+  },
+  {
+    amount: 2000,
+    country: 'Congo',
+    type: 'received',
+  },
+  {
+    amount: 1900,
+    country: 'South-Africa',
+    type: 'invested',
+  },
+  {
+    amount: 15000,
+    country: 'Morocco',
+    type: 'received',
+  },
+  {
+    amount: 700,
+    country: 'Pakistan',
+    type: 'invested',
+  },
+  {
+    amount: 2200,
+    country: 'Indonesia',
+    type: 'received',
+  },
+  {
+    amount: 200,
+    country: 'India',
+    type: 'invested',
+  },
+  {
+
+    amount: 3700,
+    country: 'USA',
+    type: 'invested',
+  },
+  {
+    amount: 5000,
+    country: 'UK',
+    type: 'invested',
+  },
+]

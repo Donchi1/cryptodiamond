@@ -14,18 +14,18 @@ function Topbar() {
             <ul className="flex justify-center flex-col lg:flex-row items-start gap-4 text-white">
               <a
                 className="inline-flex items-center gap-1"
-                href="mailto:support@ultimatefc.info"
+                href="mailto:support@ultimatefc.pro"
               >
                 <Icons.HiMail className="primary-text" />
-                <span>support@ultimatefc.info</span>
+                <span>support@ultimatefc.pro</span>
               </a>
 
               <a
                 className="inline-flex items-center gap-1"
-                href="tel:+447466587402"
+                href="tel:+447553411535"
               >
                 <Icons.HiPhone className="primary-text" />
-                <span>+447466587402</span>
+                <span>+447553411535</span>
               </a>
             </ul>
             <div className="flex items-center justify-center gap-6 text-white  bg-inherit">

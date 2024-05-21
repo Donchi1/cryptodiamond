@@ -86,18 +86,18 @@ function Contact() {
               <ul className="text-lg">
                 <li className="flex items-center mb-4 text-white gap-2">
                   <Icon2.HiPhone />
-                  <a href="tel:+447466587402" className="">
-                  +447466587402
+                  <a href="tel:+447553411535" className="">
+                  +447553411535
                   </a>
                 </li>
                 <li className="flex gap-2 text-white items-center mb-4">
                   <Icon2.HiMail />
                   <span className="">
                     <a
-                      href="mailto:support@ultimatefc.info"
+                      href="mailto:support@ultimatefc.pro"
                       className="__cf_email__"
                     >
-                      support@ultimatefc.info
+                      support@ultimatefc.pro
                     </a>
                   </span>
                 </li>

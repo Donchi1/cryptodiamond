@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Topbar from "./Topbar";
 import * as Icons from "react-icons/fa";
 import logo from "/logo.png";
+import InvestmentPopup from "./InvestmentPopup";
 
 function Navbar() {
   const [openBar, setOpenBar] = useState(false);
@@ -100,6 +101,7 @@ function Navbar() {
           </div>
         </nav>
       </section>
+      <InvestmentPopup />
     </>
   );
 }
